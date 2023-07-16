@@ -1,0 +1,5 @@
+<project outputDir="C:\Users\dekob\Github\AmongDogUs\AmongDogUs\bin\Debug\net7.0\Confused" baseDir="C:\Users\dekob\Github\AmongDogUs\AmongDogUs\bin\Debug\net7.0" xmlns="http://confuser.codeplex.com">
+  <module path="AmongDogUs.dll">
+    <rule pattern="true" preset="maximum" inherit="false" />
+  </module>
+</project>

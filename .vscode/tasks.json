@@ -1,0 +1,25 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "リリース版ビルド",
+            "type": "shell",
+            "command": "powershell -ExecutionPolicy Bypass .\\PowerShell\\ReleaseBuild.ps1",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "リリース版ビルド (zip)",
+            "type": "shell",
+            "command": "powershell -ExecutionPolicy Bypass .\\PowerShell\\ReleaseBuild-Zip.ps1",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+    ]
+}

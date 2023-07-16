@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>latest</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <Authors>DekoKiyo</Authors>
+    <Version>1.0.0.0</Version>
+    <Copyright>Copyright 2023 DekoKiyo</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+		<Reference Include="$(AmongUsDogRun)/BepInEx/core/*.dll" />
+		<Reference Include="$(AmongUsDogRun)/BepInEx/interop/*.dll" />
+  </ItemGroup>
+
+</Project>
