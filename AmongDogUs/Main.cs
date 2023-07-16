@@ -70,6 +70,8 @@ internal class Main : BasePlugin
         // Write here to need
         OnlineMenu.Initialize();
 
+        CustomColors.Load();
+
         Harmony.PatchAll();
 
         Logger.Log(LogLevel.Info, "Initialized!");

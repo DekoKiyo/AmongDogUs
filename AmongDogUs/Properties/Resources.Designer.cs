@@ -70,6 +70,159 @@ namespace AmongDogUs.Properties {
         }
         
         /// <summary>
+        ///   ブラープル に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ColorBlurple {
+            get {
+                return ResourceManager.GetString("ColorBlurple", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   ワインレッド に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ColorBordeaux {
+            get {
+                return ResourceManager.GetString("ColorBordeaux", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   ホットピンク に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ColorHotPink {
+            get {
+                return ResourceManager.GetString("ColorHotPink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   アイス に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ColorIce {
+            get {
+                return ResourceManager.GetString("ColorIce", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   ラベンダー に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ColorLavender {
+            get {
+                return ResourceManager.GetString("ColorLavender", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   レモン に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ColorLemon {
+            get {
+                return ResourceManager.GetString("ColorLemon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   ミント に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ColorMint {
+            get {
+                return ResourceManager.GetString("ColorMint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   ヌガー に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ColorNougat {
+            get {
+                return ResourceManager.GetString("ColorNougat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   オリーブ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ColorOlive {
+            get {
+                return ResourceManager.GetString("ColorOlive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   ピーチ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ColorPeach {
+            get {
+                return ResourceManager.GetString("ColorPeach", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   ペトロルブルー に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ColorPetrol {
+            get {
+                return ResourceManager.GetString("ColorPetrol", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   サーモン に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ColorSalmon {
+            get {
+                return ResourceManager.GetString("ColorSalmon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   山吹色 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ColorSignalOrange {
+            get {
+                return ResourceManager.GetString("ColorSignalOrange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   サンライズ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ColorSunrise {
+            get {
+                return ResourceManager.GetString("ColorSunrise", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   ティール に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ColorTeal {
+            get {
+                return ResourceManager.GetString("ColorTeal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   ターコイズ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ColorTurqoise {
+            get {
+                return ResourceManager.GetString("ColorTurqoise", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   ワサビ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ColorWasabi {
+            get {
+                return ResourceManager.GetString("ColorWasabi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Modが有効になっているため、&lt;br&gt;公開ルームは利用できません。 に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string DisableOnlineText {

@@ -120,6 +120,57 @@
   <data name="ChatInfoDesc" xml:space="preserve">
     <value>Modが有効になっているため、&lt;br&gt;クイックチャットのみのプレイは不可能です。</value>
   </data>
+  <data name="ColorBlurple" xml:space="preserve">
+    <value>ブラープル</value>
+  </data>
+  <data name="ColorBordeaux" xml:space="preserve">
+    <value>ワインレッド</value>
+  </data>
+  <data name="ColorHotPink" xml:space="preserve">
+    <value>ホットピンク</value>
+  </data>
+  <data name="ColorIce" xml:space="preserve">
+    <value>アイス</value>
+  </data>
+  <data name="ColorLavender" xml:space="preserve">
+    <value>ラベンダー</value>
+  </data>
+  <data name="ColorLemon" xml:space="preserve">
+    <value>レモン</value>
+  </data>
+  <data name="ColorMint" xml:space="preserve">
+    <value>ミント</value>
+  </data>
+  <data name="ColorNougat" xml:space="preserve">
+    <value>ヌガー</value>
+  </data>
+  <data name="ColorOlive" xml:space="preserve">
+    <value>オリーブ</value>
+  </data>
+  <data name="ColorPeach" xml:space="preserve">
+    <value>ピーチ</value>
+  </data>
+  <data name="ColorPetrol" xml:space="preserve">
+    <value>ペトロルブルー</value>
+  </data>
+  <data name="ColorSalmon" xml:space="preserve">
+    <value>サーモン</value>
+  </data>
+  <data name="ColorSignalOrange" xml:space="preserve">
+    <value>山吹色</value>
+  </data>
+  <data name="ColorSunrise" xml:space="preserve">
+    <value>サンライズ</value>
+  </data>
+  <data name="ColorTeal" xml:space="preserve">
+    <value>ティール</value>
+  </data>
+  <data name="ColorTurqoise" xml:space="preserve">
+    <value>ターコイズ</value>
+  </data>
+  <data name="ColorWasabi" xml:space="preserve">
+    <value>ワサビ</value>
+  </data>
   <data name="DisableOnlineText" xml:space="preserve">
     <value>Modが有効になっているため、&lt;br&gt;公開ルームは利用できません。</value>
   </data>

@@ -1,6 +1,7 @@
 {
     "dotnet.defaultSolution": "AmongDogUs.sln",
     "cSpell.words": [
+        "pickable",
         "Unhollower"
     ]
 }
