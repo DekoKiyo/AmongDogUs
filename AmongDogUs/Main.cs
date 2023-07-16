@@ -39,8 +39,10 @@ global using System.Net;
 global using System.Net.Http;
 global using System.Threading.Tasks;
 
+global using AmongDogUs.Modules;
 global using AmongDogUs.Patches;
 global using AmongDogUs.Properties;
+global using AmongDogUs.Utilities;
 global using ModResources = AmongDogUs.Properties.Resources;
 
 namespace AmongDogUs;
@@ -66,7 +68,10 @@ internal class Main : BasePlugin
         Logger = BepInEx.Logging.Logger.CreateLogSource("AmongDogRun");
 
         // Write here to need
+        OnlineMenu.Initialize();
 
         Harmony.PatchAll();
+
+        Logger.Log(LogLevel.Info, "Initialized!");
     }
 }
