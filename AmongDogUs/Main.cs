@@ -71,7 +71,6 @@ internal class Main : BasePlugin
         OnlineMenu.Initialize();
 
         Harmony.PatchAll();
-        ModManagerPatch.Initialize();
 
         Logger.Log(LogLevel.Info, "Initialized!");
     }

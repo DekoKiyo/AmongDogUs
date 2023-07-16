@@ -59,14 +59,21 @@ internal static class OnlineMenu
 
     internal static void DisableOnline(VersionShower vs)
     {
-        var FindGameButtonBase = GameObject.Find("NormalMenu/Buttons/FindGameButton");
-        var FindGameButton = FindGameButtonBase.transform.FindChild("FindGameButton").gameObject;
-        FindGameButton.active = false;
+        try
+        {
+            var FindGameButtonBase = GameObject.Find("NormalMenu/Buttons/FindGameButton");
+            var FindGameButton = FindGameButtonBase.transform.FindChild("FindGameButton").gameObject;
+            FindGameButton.active = false;
 
-        var DisableText = Object.Instantiate(vs.text, FindGameButtonBase.transform);
-        DisableText.text = string.Format(ModResources.DisableOnlineText);
-        DisableText.transform.localPosition = new Vector3(0.1037f, -0.283f, 0f);
-        DisableText.gameObject.active = true;
+            var DisableText = Object.Instantiate(vs.text, FindGameButtonBase.transform);
+            DisableText.text = string.Format(ModResources.DisableOnlineText);
+            DisableText.transform.localPosition = new Vector3(0.1037f, -0.283f, 0f);
+            DisableText.gameObject.active = true;
+        }
+        catch
+        {
+            Main.Logger.Log(LogLevel.Warning, "Null Error on Disable Online");
+        }
     }
 
     private static void FixPrivateMenuPos()

@@ -1,9 +1,11 @@
 namespace AmongDogUs.Patches;
 
+[HarmonyPatch(typeof(ModManager))]
 internal static class ModManagerPatch
 {
-    internal static void Initialize()
+    [HarmonyPatch(nameof(ModManager.LateUpdate)), HarmonyPrefix]
+    internal static void Initialize(ModManager __instance)
     {
-        FastDestroyableSingleton<ModManager>.Instance.ShowModStamp();
+        __instance.ShowModStamp();
     }
 }
