@@ -68,6 +68,7 @@ internal class Main : BasePlugin
         Logger = BepInEx.Logging.Logger.CreateLogSource("AmongDogRun");
 
         // Write here to need
+        ModManagerPatch.Initialize();
         OnlineMenu.Initialize();
 
         Harmony.PatchAll();
