@@ -117,6 +117,27 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ActivateRoles" xml:space="preserve">
+    <value>Mod役職と属性を適用</value>
+  </data>
+  <data name="AirShipReactorDuration" xml:space="preserve">
+    <value>AirShip昇降機制限時間</value>
+  </data>
+  <data name="AirShipSettings" xml:space="preserve">
+    <value>AirShipの設定</value>
+  </data>
+  <data name="BlockSkip" xml:space="preserve">
+    <value>会議スキップ不可</value>
+  </data>
+  <data name="CanZoomInOutDead" xml:space="preserve">
+    <value>死亡時に視野範囲を変更可能</value>
+  </data>
+  <data name="CanZoomInOutDead1" xml:space="preserve">
+    <value>死亡時、ズームイン&amp;アウト可能</value>
+  </data>
+  <data name="ChangePage" xml:space="preserve">
+    <value>&lt;&gt;でページを変更</value>
+  </data>
   <data name="ChatInfoDesc" xml:space="preserve">
     <value>Modが有効になっているため、&lt;br&gt;クイックチャットのみのプレイは不可能です。</value>
   </data>
@@ -171,8 +192,186 @@
   <data name="ColorWasabi" xml:space="preserve">
     <value>ワサビ</value>
   </data>
+  <data name="CrewmateRolesCountMax" xml:space="preserve">
+    <value>最大クルーメイトロール数</value>
+  </data>
+  <data name="CrewmateRolesCountMin" xml:space="preserve">
+    <value>最小クルーメイトロール数</value>
+  </data>
+  <data name="DisableAdmin" xml:space="preserve">
+    <value>アドミンの制限時間</value>
+  </data>
+  <data name="DisableCameras" xml:space="preserve">
+    <value>カメラの制限時間</value>
+  </data>
   <data name="DisableOnlineText" xml:space="preserve">
     <value>Modが有効になっているため、&lt;br&gt;公開ルームは利用できません。</value>
+  </data>
+  <data name="DisableVitals" xml:space="preserve">
+    <value>バイタルの制限時間</value>
+  </data>
+  <data name="EnableCockpitAdmin" xml:space="preserve">
+    <value>コックピットのアドミン有効化</value>
+  </data>
+  <data name="EnableCustomTasks" xml:space="preserve">
+    <value>カスタムタスクを有効化</value>
+  </data>
+  <data name="EnableRecordsAdmin" xml:space="preserve">
+    <value>アーカイブのアドミン有効化</value>
+  </data>
+  <data name="ErrorHostNoVersion" xml:space="preserve">
+    <value>&lt;color=#00a2ff&gt;ホストがUltimateModsを導入していないかバージョンが違います。&lt;br/&gt;
+バグ防止のため、あなたはあと{0}秒でキックされます。&lt;/color&gt;</value>
+  </data>
+  <data name="ErrorNewerVersion" xml:space="preserve">
+    <value>{0}のUltimateModsのバージョンがこのバージョンより新しいです。</value>
+  </data>
+  <data name="ErrorNotInstalled" xml:space="preserve">
+    <value>{0}のUltimateModsは正常に導入されていません。</value>
+  </data>
+  <data name="ErrorOlderVersion" xml:space="preserve">
+    <value>{0}のUltimateModsのバージョンがこのバージョンより古いです。</value>
+  </data>
+  <data name="ErrorWrongVersion" xml:space="preserve">
+    <value>{0}のUltimateModsのバージョンがこのバージョンと違います。</value>
+  </data>
+  <data name="FillCrewmate" xml:space="preserve">
+    <value>最小最大を無視してクルー役職で埋める</value>
+  </data>
+  <data name="FormatMultiplier" xml:space="preserve">
+    <value>{0}x</value>
+  </data>
+  <data name="FormatPercent" xml:space="preserve">
+    <value>{0}%</value>
+  </data>
+  <data name="FormatPlayer" xml:space="preserve">
+    <value>{0}人</value>
+  </data>
+  <data name="FormatSeconds" xml:space="preserve">
+    <value>{0}秒</value>
+  </data>
+  <data name="FormatShots" xml:space="preserve">
+    <value>{0}発</value>
+  </data>
+  <data name="FormatTimes" xml:space="preserve">
+    <value>{0}回</value>
+  </data>
+  <data name="FormatVotes" xml:space="preserve">
+    <value>{0票</value>
+  </data>
+  <data name="HideOutName" xml:space="preserve">
+    <value>ネームタグの壁抜けを防止</value>
+  </data>
+  <data name="HidePlayerName" xml:space="preserve">
+    <value>プレイヤー名非表示</value>
+  </data>
+  <data name="ImpostorRolesCountMax" xml:space="preserve">
+    <value>最大インポスターロール数</value>
+  </data>
+  <data name="ImpostorRolesCountMin" xml:space="preserve">
+    <value>最小インポスターロール数</value>
+  </data>
+  <data name="MaxNumberOfMeetings" xml:space="preserve">
+    <value>緊急会議回数上限</value>
+  </data>
+  <data name="MirrorMap" xml:space="preserve">
+    <value>反転マップ</value>
+  </data>
+  <data name="MirrorMap1" xml:space="preserve">
+    <value>反転マップを有効化</value>
+  </data>
+  <data name="ModifierCountMax" xml:space="preserve">
+    <value>最大属性出現数</value>
+  </data>
+  <data name="ModifierCountMin" xml:space="preserve">
+    <value>最小属性出現数</value>
+  </data>
+  <data name="NeutralRolesCountMax" xml:space="preserve">
+    <value>最大第三陣営ロール数</value>
+  </data>
+  <data name="NeutralRolesCountMin" xml:space="preserve">
+    <value>最小第三陣営ロール数</value>
+  </data>
+  <data name="NoMedBayLimit" xml:space="preserve">
+    <value>スキャンタスク上限撤廃</value>
+  </data>
+  <data name="NoVoteIsSelfVote" xml:space="preserve">
+    <value>自身に投票禁止</value>
+  </data>
+  <data name="OldAirShipAdmin" xml:space="preserve">
+    <value>旧AirShipアドミン仕様</value>
+  </data>
+  <data name="OptionOff" xml:space="preserve">
+    <value>オフ</value>
+  </data>
+  <data name="OptionOn" xml:space="preserve">
+    <value>オン</value>
+  </data>
+  <data name="PlayRandomMaps" xml:space="preserve">
+    <value>ランダムマップモード</value>
+  </data>
+  <data name="Preset1" xml:space="preserve">
+    <value>プリセット1</value>
+  </data>
+  <data name="Preset2" xml:space="preserve">
+    <value>プリセット2</value>
+  </data>
+  <data name="Preset3" xml:space="preserve">
+    <value>プリセット3</value>
+  </data>
+  <data name="Preset4" xml:space="preserve">
+    <value>プリセット4</value>
+  </data>
+  <data name="Preset5" xml:space="preserve">
+    <value>プリセット5</value>
+  </data>
+  <data name="PresetSelection" xml:space="preserve">
+    <value>プリセット</value>
+  </data>
+  <data name="RandomMapsEnableAirShip" xml:space="preserve">
+    <value>AirShip</value>
+  </data>
+  <data name="RandomMapsEnableMira" xml:space="preserve">
+    <value>MiraHQ</value>
+  </data>
+  <data name="RandomMapsEnablePolus" xml:space="preserve">
+    <value>Polus</value>
+  </data>
+  <data name="RandomMapsEnableSkeld" xml:space="preserve">
+    <value>The Skeld</value>
+  </data>
+  <data name="RandomMapsEnableSubmerged" xml:space="preserve">
+    <value>Submerged</value>
+  </data>
+  <data name="RefundVoteDeath" xml:space="preserve">
+    <value>投票先が死亡した時、再投票可</value>
+  </data>
+  <data name="RestrictDevices" xml:space="preserve">
+    <value>特殊装置の制限</value>
+  </data>
+  <data name="RestrictPerGame" xml:space="preserve">
+    <value>試合毎</value>
+  </data>
+  <data name="RestrictPerTurn" xml:space="preserve">
+    <value>ターン毎</value>
+  </data>
+  <data name="TabTitleCrew" xml:space="preserve">
+    <value>クルーの設定</value>
+  </data>
+  <data name="TabTitleGeneral" xml:space="preserve">
+    <value>総合設定</value>
+  </data>
+  <data name="TabTitleImp" xml:space="preserve">
+    <value>インポスターの設定</value>
+  </data>
+  <data name="TabTitleMod" xml:space="preserve">
+    <value>属性の設定</value>
+  </data>
+  <data name="TabTitleNeu" xml:space="preserve">
+    <value>第三陣営の設定</value>
+  </data>
+  <data name="TabTitleOth" xml:space="preserve">
+    <value>その他の設定</value>
   </data>
   <data name="VersionShower" xml:space="preserve">
     <value>AmongDogUs Ver.{0}</value>

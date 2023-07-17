@@ -12,6 +12,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+		<EmbeddedResource Include="Resources\**" />
 		<Reference Include="$(AmongUsDogRun)/BepInEx/core/*.dll" />
 		<Reference Include="$(AmongUsDogRun)/BepInEx/interop/*.dll" />
   </ItemGroup>

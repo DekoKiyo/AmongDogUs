@@ -1,6 +1,10 @@
 {
     "dotnet.defaultSolution": "AmongDogUs.sln",
     "cSpell.words": [
+        "Behaviours",
+        "Elec",
+        "Gameplay",
+        "Hightlight",
         "pickable",
         "Unhollower"
     ]

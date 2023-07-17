@@ -61,6 +61,69 @@ namespace AmongDogUs.Properties {
         }
         
         /// <summary>
+        ///   Mod役職と属性を適用 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ActivateRoles {
+            get {
+                return ResourceManager.GetString("ActivateRoles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   AirShip昇降機制限時間 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string AirShipReactorDuration {
+            get {
+                return ResourceManager.GetString("AirShipReactorDuration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   AirShipの設定 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string AirShipSettings {
+            get {
+                return ResourceManager.GetString("AirShipSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   会議スキップ不可 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string BlockSkip {
+            get {
+                return ResourceManager.GetString("BlockSkip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   死亡時に視野範囲を変更可能 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string CanZoomInOutDead {
+            get {
+                return ResourceManager.GetString("CanZoomInOutDead", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   死亡時、ズームイン&amp;アウト可能 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string CanZoomInOutDead1 {
+            get {
+                return ResourceManager.GetString("CanZoomInOutDead1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   &lt;&gt;でページを変更 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ChangePage {
+            get {
+                return ResourceManager.GetString("ChangePage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Modが有効になっているため、&lt;br&gt;クイックチャットのみのプレイは不可能です。 に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string ChatInfoDesc {
@@ -223,11 +286,543 @@ namespace AmongDogUs.Properties {
         }
         
         /// <summary>
+        ///   最大クルーメイトロール数 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string CrewmateRolesCountMax {
+            get {
+                return ResourceManager.GetString("CrewmateRolesCountMax", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   最小クルーメイトロール数 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string CrewmateRolesCountMin {
+            get {
+                return ResourceManager.GetString("CrewmateRolesCountMin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   アドミンの制限時間 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string DisableAdmin {
+            get {
+                return ResourceManager.GetString("DisableAdmin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   カメラの制限時間 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string DisableCameras {
+            get {
+                return ResourceManager.GetString("DisableCameras", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Modが有効になっているため、&lt;br&gt;公開ルームは利用できません。 に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string DisableOnlineText {
             get {
                 return ResourceManager.GetString("DisableOnlineText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   バイタルの制限時間 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string DisableVitals {
+            get {
+                return ResourceManager.GetString("DisableVitals", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   コックピットのアドミン有効化 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string EnableCockpitAdmin {
+            get {
+                return ResourceManager.GetString("EnableCockpitAdmin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   カスタムタスクを有効化 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string EnableCustomTasks {
+            get {
+                return ResourceManager.GetString("EnableCustomTasks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   アーカイブのアドミン有効化 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string EnableRecordsAdmin {
+            get {
+                return ResourceManager.GetString("EnableRecordsAdmin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   &lt;color=#00a2ff&gt;ホストがUltimateModsを導入していないかバージョンが違います。&lt;br/&gt;
+        ///バグ防止のため、あなたはあと{0}秒でキックされます。&lt;/color&gt; に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ErrorHostNoVersion {
+            get {
+                return ResourceManager.GetString("ErrorHostNoVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   {0}のUltimateModsのバージョンがこのバージョンより新しいです。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ErrorNewerVersion {
+            get {
+                return ResourceManager.GetString("ErrorNewerVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   {0}のUltimateModsは正常に導入されていません。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ErrorNotInstalled {
+            get {
+                return ResourceManager.GetString("ErrorNotInstalled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   {0}のUltimateModsのバージョンがこのバージョンより古いです。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ErrorOlderVersion {
+            get {
+                return ResourceManager.GetString("ErrorOlderVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   {0}のUltimateModsのバージョンがこのバージョンと違います。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ErrorWrongVersion {
+            get {
+                return ResourceManager.GetString("ErrorWrongVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   最小最大を無視してクルー役職で埋める に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string FillCrewmate {
+            get {
+                return ResourceManager.GetString("FillCrewmate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   {0}x に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string FormatMultiplier {
+            get {
+                return ResourceManager.GetString("FormatMultiplier", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   {0}% に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string FormatPercent {
+            get {
+                return ResourceManager.GetString("FormatPercent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   {0}人 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string FormatPlayer {
+            get {
+                return ResourceManager.GetString("FormatPlayer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   {0}秒 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string FormatSeconds {
+            get {
+                return ResourceManager.GetString("FormatSeconds", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   {0}発 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string FormatShots {
+            get {
+                return ResourceManager.GetString("FormatShots", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   {0}回 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string FormatTimes {
+            get {
+                return ResourceManager.GetString("FormatTimes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   {0票 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string FormatVotes {
+            get {
+                return ResourceManager.GetString("FormatVotes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   ネームタグの壁抜けを防止 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string HideOutName {
+            get {
+                return ResourceManager.GetString("HideOutName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   プレイヤー名非表示 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string HidePlayerName {
+            get {
+                return ResourceManager.GetString("HidePlayerName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   最大インポスターロール数 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ImpostorRolesCountMax {
+            get {
+                return ResourceManager.GetString("ImpostorRolesCountMax", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   最小インポスターロール数 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ImpostorRolesCountMin {
+            get {
+                return ResourceManager.GetString("ImpostorRolesCountMin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   緊急会議回数上限 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string MaxNumberOfMeetings {
+            get {
+                return ResourceManager.GetString("MaxNumberOfMeetings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   反転マップ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string MirrorMap {
+            get {
+                return ResourceManager.GetString("MirrorMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   反転マップを有効化 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string MirrorMap1 {
+            get {
+                return ResourceManager.GetString("MirrorMap1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   最大属性出現数 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ModifierCountMax {
+            get {
+                return ResourceManager.GetString("ModifierCountMax", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   最小属性出現数 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ModifierCountMin {
+            get {
+                return ResourceManager.GetString("ModifierCountMin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   最大第三陣営ロール数 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NeutralRolesCountMax {
+            get {
+                return ResourceManager.GetString("NeutralRolesCountMax", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   最小第三陣営ロール数 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NeutralRolesCountMin {
+            get {
+                return ResourceManager.GetString("NeutralRolesCountMin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   スキャンタスク上限撤廃 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NoMedBayLimit {
+            get {
+                return ResourceManager.GetString("NoMedBayLimit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   自身に投票禁止 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NoVoteIsSelfVote {
+            get {
+                return ResourceManager.GetString("NoVoteIsSelfVote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   旧AirShipアドミン仕様 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string OldAirShipAdmin {
+            get {
+                return ResourceManager.GetString("OldAirShipAdmin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   オフ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string OptionOff {
+            get {
+                return ResourceManager.GetString("OptionOff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   オン に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string OptionOn {
+            get {
+                return ResourceManager.GetString("OptionOn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   ランダムマップモード に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string PlayRandomMaps {
+            get {
+                return ResourceManager.GetString("PlayRandomMaps", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   プリセット1 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Preset1 {
+            get {
+                return ResourceManager.GetString("Preset1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   プリセット2 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Preset2 {
+            get {
+                return ResourceManager.GetString("Preset2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   プリセット3 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Preset3 {
+            get {
+                return ResourceManager.GetString("Preset3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   プリセット4 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Preset4 {
+            get {
+                return ResourceManager.GetString("Preset4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   プリセット5 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Preset5 {
+            get {
+                return ResourceManager.GetString("Preset5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   プリセット に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string PresetSelection {
+            get {
+                return ResourceManager.GetString("PresetSelection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   AirShip に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string RandomMapsEnableAirShip {
+            get {
+                return ResourceManager.GetString("RandomMapsEnableAirShip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   MiraHQ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string RandomMapsEnableMira {
+            get {
+                return ResourceManager.GetString("RandomMapsEnableMira", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Polus に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string RandomMapsEnablePolus {
+            get {
+                return ResourceManager.GetString("RandomMapsEnablePolus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   The Skeld に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string RandomMapsEnableSkeld {
+            get {
+                return ResourceManager.GetString("RandomMapsEnableSkeld", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Submerged に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string RandomMapsEnableSubmerged {
+            get {
+                return ResourceManager.GetString("RandomMapsEnableSubmerged", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   投票先が死亡した時、再投票可 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string RefundVoteDeath {
+            get {
+                return ResourceManager.GetString("RefundVoteDeath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   特殊装置の制限 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string RestrictDevices {
+            get {
+                return ResourceManager.GetString("RestrictDevices", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   試合毎 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string RestrictPerGame {
+            get {
+                return ResourceManager.GetString("RestrictPerGame", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   ターン毎 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string RestrictPerTurn {
+            get {
+                return ResourceManager.GetString("RestrictPerTurn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   クルーの設定 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string TabTitleCrew {
+            get {
+                return ResourceManager.GetString("TabTitleCrew", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   総合設定 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string TabTitleGeneral {
+            get {
+                return ResourceManager.GetString("TabTitleGeneral", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   インポスターの設定 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string TabTitleImp {
+            get {
+                return ResourceManager.GetString("TabTitleImp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   属性の設定 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string TabTitleMod {
+            get {
+                return ResourceManager.GetString("TabTitleMod", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   第三陣営の設定 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string TabTitleNeu {
+            get {
+                return ResourceManager.GetString("TabTitleNeu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   その他の設定 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string TabTitleOth {
+            get {
+                return ResourceManager.GetString("TabTitleOth", resourceCulture);
             }
         }
         
