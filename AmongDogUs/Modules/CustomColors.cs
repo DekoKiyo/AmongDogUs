@@ -1,5 +1,6 @@
-namespace AmongDogUs.Modules;
+// Source Code from TheOtherRoles (https://github.com/TheOtherRolesAU/TheOtherRoles)
 
+namespace AmongDogUs.Modules;
 
 internal class CustomColors
 {
