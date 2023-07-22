@@ -10,11 +10,11 @@ internal class ModifierInfo
     internal virtual string FullDescription { get { return AmongDogUs.GetString($"{NameKey}Full"); } }
     internal virtual string RoleOptions { get { return GameOptionsDataPatch.OptionsToString(BaseOption, true); } }
 
-    internal ModifierId ModId;
+    internal ModifierType ModId;
     internal string NameKey;
     internal CustomOption BaseOption;
 
-    internal ModifierInfo(string Name, Color RoleColor, CustomOption BaseOption, ModifierId ModId)
+    internal ModifierInfo(string Name, Color RoleColor, CustomOption BaseOption, ModifierType ModId)
     {
         this.RoleColor = RoleColor;
         NameKey = Name;
@@ -40,12 +40,12 @@ internal static class ModifierInfoList
             Watcher,
         };
 
-        Opportunist = new("Opportunist", Palette.ImpostorRed, null, ModifierId.Opportunist);
-        Sunglasses = new("Sunglasses", Palette.ImpostorRed, null, ModifierId.Sunglasses);
-        Watcher = new("Watcher", Palette.ImpostorRed, null, ModifierId.Watcher);
+        Opportunist = new("Opportunist", Palette.ImpostorRed, null, ModifierType.Opportunist);
+        Sunglasses = new("Sunglasses", Palette.ImpostorRed, null, ModifierType.Sunglasses);
+        Watcher = new("Watcher", Palette.ImpostorRed, null, ModifierType.Watcher);
     }
 
-    internal static List<ModifierInfo> GetModifierInfoForPlayer(PlayerControl p, ModifierId[] excludeRoles = null, bool includeHidden = false)
+    internal static List<ModifierInfo> GetModifierInfoForPlayer(PlayerControl p, ModifierType[] excludeRoles = null, bool _ = false)
     {
         List<ModifierInfo> infos = new();
         if (p == null) return infos;
@@ -54,5 +54,4 @@ internal static class ModifierInfoList
 
         return infos;
     }
-
 }

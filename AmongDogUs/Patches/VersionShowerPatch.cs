@@ -10,7 +10,7 @@ internal static class VersionShowerPatch
     {
         ModVersionShower = Object.Instantiate(__instance.text, __instance.transform);
         ModVersionShower.text = string.Format(ModResources.VersionShower, Main.PLUGIN_VERSION);
-        ModVersionShower.transform.localPosition = new(9, 0, -5);
+        ModVersionShower.transform.localPosition = new(3.5f, 0f, -5f);
 
         OnlineMenu.DisableOnline(__instance);
     }

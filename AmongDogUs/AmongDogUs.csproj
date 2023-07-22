@@ -13,8 +13,10 @@
 
   <ItemGroup>
 		<EmbeddedResource Include="Resources\**" />
-		<Reference Include="$(AmongUsDogRun)/BepInEx/core/*.dll" />
-		<Reference Include="$(AmongUsDogRun)/BepInEx/interop/*.dll" />
+		<Reference Include="$(AmongUsDogRun)\BepInEx\plugins\Reactor.dll" />
+		<Reference Include="$(AmongUsDogRun)\BepInEx\core\*.dll" />
+		<Reference Remove="$(AmongUsDogRun)\BepInEx\core\dobby.dll" />
+		<Reference Include="$(AmongUsDogRun)\BepInEx\interop\*.dll" />
   </ItemGroup>
 
   <ItemGroup>

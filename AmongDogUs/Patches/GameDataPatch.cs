@@ -1,9 +1,10 @@
 namespace AmongDogUs.Patches;
 
-[HarmonyPatch(typeof(GameData), nameof(GameData.HandleDisconnect), new Type[] { typeof(PlayerControl), typeof(DisconnectReasons) })]
+[HarmonyPatch(typeof(GameData))]
 internal static class HandleDisconnectPatch
 {
-    public static void Postfix(GameData __instance, PlayerControl player, DisconnectReasons reason)
+    [HarmonyPatch(nameof(GameData.HandleDisconnect), new Type[] { typeof(PlayerControl), typeof(DisconnectReasons) }), HarmonyPostfix]
+    internal static void HandleDisconnect(GameData __instance, PlayerControl player, DisconnectReasons reason)
     {
         if (AmongUsClient.Instance.GameState is InnerNetClient.GameStates.Started)
         {

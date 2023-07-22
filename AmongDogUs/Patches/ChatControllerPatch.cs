@@ -1,7 +1,7 @@
 namespace AmongDogUs.Patches;
 
 [HarmonyPatch(typeof(ChatController))]
-public static class ChatControllerAwakePatch
+internal static class ChatControllerPatch
 {
     [HarmonyPatch(nameof(ChatController.Awake)), HarmonyPrefix]
     private static void FreeChat()

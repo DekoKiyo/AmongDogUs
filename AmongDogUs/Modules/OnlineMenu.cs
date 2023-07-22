@@ -62,17 +62,23 @@ internal static class OnlineMenu
         try
         {
             var FindGameButtonBase = GameObject.Find("NormalMenu/Buttons/FindGameButton");
-            var FindGameButton = FindGameButtonBase.transform.FindChild("FindGameButton").gameObject;
-            FindGameButton.active = false;
+            if (FindGameButtonBase is not null)
+            {
+                var FindGameButton = FindGameButtonBase.transform.FindChild("FindGameButton").gameObject;
+                if (FindGameButton is not null)
+                {
+                    FindGameButton.active = false;
 
-            var DisableText = Object.Instantiate(vs.text, FindGameButtonBase.transform);
-            DisableText.text = string.Format(ModResources.DisableOnlineText);
-            DisableText.transform.localPosition = new Vector3(0.1037f, -0.283f, 0f);
-            DisableText.gameObject.active = true;
+                    var DisableText = Object.Instantiate(vs.text, FindGameButtonBase.transform);
+                    DisableText.text = string.Format(ModResources.DisableOnlineText);
+                    DisableText.transform.localPosition = new Vector3(0.1037f, -0.283f, 0f);
+                    DisableText.gameObject.active = true;
+                }
+            }
         }
-        catch
+        catch (Exception)
         {
-            Main.Logger.Log(LogLevel.Warning, "Null Error on Disable Online");
+            Main.Logger.Log(LogLevel.Warning, "Error on Disable Online");
         }
     }
 

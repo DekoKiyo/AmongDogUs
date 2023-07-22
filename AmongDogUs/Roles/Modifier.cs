@@ -1,10 +1,31 @@
 namespace AmongDogUs.Roles;
 
+internal enum ModifierType
+{
+    None = 0,
+
+    // 新しく書く場合は一番下へ
+    Opportunist,
+    Sunglasses,
+    Watcher,
+}
+
+[HarmonyPatch]
+internal static class ModifierData
+{
+    internal static Dictionary<ModifierType, Type> allModTypes = new()
+    {
+        { ModifierType.Opportunist, typeof(ModifierBase<Opportunist>) },
+        { ModifierType.Watcher, typeof(ModifierBase<Watcher>) },
+        { ModifierType.Sunglasses, typeof(ModifierBase<Sunglasses>) },
+    };
+}
+
 internal abstract class Modifier
 {
     internal static List<Modifier> allModifiers = new();
     internal PlayerControl player;
-    internal ModifierId modId;
+    internal ModifierType modType;
 
     internal abstract string ModifierPostfix();
     internal abstract void OnMeetingStart();
@@ -13,6 +34,8 @@ internal abstract class Modifier
     internal abstract void OnKill(PlayerControl target);
     internal abstract void OnDeath(PlayerControl killer = null);
     internal abstract void HandleDisconnect(PlayerControl player, DisconnectReasons reason);
+    internal abstract void MakeButtons(HudManager hm);
+    internal abstract void SetButtonCooldowns();
     internal abstract void Clear();
 
     internal static void ClearAll()
@@ -25,7 +48,7 @@ internal abstract class Modifier
 internal abstract class ModifierBase<T> : Modifier where T : ModifierBase<T>, new()
 {
     internal static List<T> players = new();
-    internal static ModifierId ModId;
+    internal static ModifierType ModType;
 
     internal void Init(PlayerControl player)
     {
@@ -39,16 +62,16 @@ internal abstract class ModifierBase<T> : Modifier where T : ModifierBase<T>, ne
     internal static List<PlayerControl> LivingPlayers { get { return players.Select(x => x.player).Where(x => x.IsAlive()).ToList(); } }
     internal static List<PlayerControl> DeadPlayers { get { return players.Select(x => x.player).Where(x => !x.IsAlive()).ToList(); } }
     internal static bool Exists { get { return Helpers.RolesEnabled && players.Count > 0; } }
-    internal static T GetModifier(PlayerControl player = null)
+    public static T GetModifier(PlayerControl player = null)
     {
         player ??= PlayerControl.LocalPlayer;
         return players.FirstOrDefault(x => x.player == player);
     }
-    internal static bool HasModifier(PlayerControl player)
+    public static bool HasModifier(PlayerControl player)
     {
         return players.Any(x => x.player == player);
     }
-    internal static void AddModifier(PlayerControl player)
+    public static void AddModifier(PlayerControl player)
     {
         if (!HasModifier(player))
         {
@@ -56,12 +79,12 @@ internal abstract class ModifierBase<T> : Modifier where T : ModifierBase<T>, ne
             mod.Init(player);
         }
     }
-    internal static void EraseModifier(PlayerControl player)
+    public static void EraseModifier(PlayerControl player)
     {
-        players.RemoveAll(x => x.player == player && x.modId == ModId);
-        allModifiers.RemoveAll(x => x.player == player && x.modId == ModId);
+        players.RemoveAll(x => x.player == player && x.modType == ModType);
+        allModifiers.RemoveAll(x => x.player == player && x.modType == ModType);
     }
-    internal static void SwapModifier(PlayerControl p1, PlayerControl p2)
+    public static void SwapModifier(PlayerControl p1, PlayerControl p2)
     {
         var index = players.FindIndex(x => x.player == p1);
         if (index >= 0)
@@ -71,52 +94,27 @@ internal abstract class ModifierBase<T> : Modifier where T : ModifierBase<T>, ne
     }
 }
 
-internal enum ModifierId
-{
-    None = 0,
-
-    // 新しく書く場合は一番下へ
-    Opportunist,
-    Sunglasses,
-    Watcher,
-}
-
-[HarmonyPatch]
-internal static class ModifierData
-{
-    internal static Dictionary<ModifierId, Type> allModTypes = new()
-    {
-        // { ModifierId.Opportunist, typeof(ModifierBase<Opportunist>) },
-        // { ModifierId.Watcher, typeof(ModifierBase<Watcher>) },
-        // { ModifierId.Sunglasses, typeof(ModifierBase<Sunglasses>) },
-    };
-}
-
 internal static class ModifierHelpers
 {
-    internal static string GetModifierPostfixString(this PlayerControl __instance, ModifierId modId)
+    internal static string GetModifierPostfixString(this PlayerControl __instance, ModifierType modId)
     {
         foreach (var mod in Modifier.allModifiers)
         {
-            foreach (var t in ModifierData.allModTypes)
-                if (modId == t.Key) return mod.ModifierPostfix();
+            foreach (var t in ModifierData.allModTypes) if (modId == t.Key) return mod.ModifierPostfix();
         }
         return "NoData";
     }
 
-    internal static bool HasModifier(this PlayerControl player, ModifierId modId)
+    internal static bool HasModifier(this PlayerControl player, ModifierType modId)
     {
         foreach (var t in ModifierData.allModTypes)
         {
-            if (modId == t.Key)
-            {
-                return (bool)t.Value.GetMethod("HasModifier", BindingFlags.Public | BindingFlags.Static)?.Invoke(null, new object[] { player });
-            }
+            if (modId == t.Key) return (bool)t.Value.GetMethod("HasModifier", BindingFlags.Public | BindingFlags.Static)?.Invoke(null, new object[] { player });
         }
         return false;
     }
 
-    internal static void AddModifier(this PlayerControl player, ModifierId modId)
+    internal static void AddModifier(this PlayerControl player, ModifierType modId)
     {
         foreach (var t in ModifierData.allModTypes)
         {

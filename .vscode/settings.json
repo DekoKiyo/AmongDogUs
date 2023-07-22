@@ -2,10 +2,22 @@
     "dotnet.defaultSolution": "AmongDogUs.sln",
     "cSpell.words": [
         "Behaviours",
+        "Cutscene",
+        "Desat",
         "Elec",
         "Gameplay",
+        "Heli",
         "Hightlight",
+        "medscan",
+        "Monjas",
         "pickable",
-        "Unhollower"
+        "Rigidbody",
+        "Targetable",
+        "Targetables",
+        "Teleporter",
+        "TORGMH",
+        "UGUI",
+        "Unhollower",
+        "Usables"
     ]
 }

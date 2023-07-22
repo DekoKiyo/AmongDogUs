@@ -120,14 +120,146 @@
   <data name="ActivateRoles" xml:space="preserve">
     <value>Mod役職と属性を適用</value>
   </data>
+  <data name="ADUUpdateTitle" xml:space="preserve">
+    <value>AmongDogUs アップデート</value>
+  </data>
+  <data name="AirShipElecDoorOption" xml:space="preserve">
+    <value>AirShip電気室ドア設定</value>
+  </data>
+  <data name="AirShipOptionsTitle" xml:space="preserve">
+    <value>AirShipの設定</value>
+  </data>
   <data name="AirShipReactorDuration" xml:space="preserve">
     <value>AirShip昇降機制限時間</value>
   </data>
   <data name="AirShipSettings" xml:space="preserve">
-    <value>AirShipの設定</value>
+    <value>AirShipをカスタマイズ</value>
+  </data>
+  <data name="Altruist" xml:space="preserve">
+    <value>アルトルイスト</value>
+  </data>
+  <data name="AltruistDuration" xml:space="preserve">
+    <value>復活までの時間</value>
+  </data>
+  <data name="AltruistFull" xml:space="preserve">
+    <value>自らを犠牲にしてクルーを復活させる。</value>
+  </data>
+  <data name="AltruistIntro" xml:space="preserve">
+    <value>自らを犠牲にして、クルーを復活させよう</value>
+  </data>
+  <data name="AltruistReviveText" xml:space="preserve">
+    <value>復活</value>
+  </data>
+  <data name="AltruistShort" xml:space="preserve">
+    <value>クルーを復活させよう。</value>
+  </data>
+  <data name="AnnouncementUpdate" xml:space="preserve">
+    <value>&lt;size=150%&gt;新しい{0}のアップデート{1}が利用可能&lt;/size&gt;\n{2}</value>
+  </data>
+  <data name="Arsonist" xml:space="preserve">
+    <value>アーソニスト</value>
+  </data>
+  <data name="ArsonistCooldown" xml:space="preserve">
+    <value>灯油クールダウン</value>
+  </data>
+  <data name="ArsonistDuration" xml:space="preserve">
+    <value>必要時間</value>
+  </data>
+  <data name="ArsonistFull" xml:space="preserve">
+    <value>全プレイヤーにガソリンを塗ることができる\n全プレイヤーにガソリンを塗り放火すると勝利する\n死んだプレイヤーはカウントされない</value>
+  </data>
+  <data name="ArsonistIntro" xml:space="preserve">
+    <value>全員燃やせ</value>
+  </data>
+  <data name="ArsonistShort" xml:space="preserve">
+    <value>全員燃やせ</value>
+  </data>
+  <data name="ArsonistWin" xml:space="preserve">
+    <value>アーソニスト勝利</value>
+  </data>
+  <data name="ArsonistWinExtra" xml:space="preserve">
+    <value>アーソニスト{0}勝利</value>
+  </data>
+  <data name="Bakery" xml:space="preserve">
+    <value>パン屋</value>
+  </data>
+  <data name="BakeryBombRate" xml:space="preserve">
+    <value>爆発確率</value>
+  </data>
+  <data name="BakeryFull" xml:space="preserve">
+    <value>生きているときにパンを焼いて、\nみんなにパン屋がいることを伝えよう。</value>
+  </data>
+  <data name="BakeryIntro" xml:space="preserve">
+    <value>おいしいパンを作ろう</value>
+  </data>
+  <data name="BakeryShort" xml:space="preserve">
+    <value>パンを焼こう</value>
   </data>
   <data name="BlockSkip" xml:space="preserve">
     <value>会議スキップ不可</value>
+  </data>
+  <data name="BombBakeryText" xml:space="preserve">
+    <value>パン屋どっかーーーーーん！</value>
+  </data>
+  <data name="BountyHunter" xml:space="preserve">
+    <value>バウンティハンター</value>
+  </data>
+  <data name="BountyHunterArrowUpdateCooldown" xml:space="preserve">
+    <value>矢印の更新時間</value>
+  </data>
+  <data name="BountyHunterDuration" xml:space="preserve">
+    <value>ターゲットの制限時間</value>
+  </data>
+  <data name="BountyHunterFull" xml:space="preserve">
+    <value>バウンティハンターは常に仲間以外の標的を持ちます。\nその標的を殺すとキルクールが大幅に縮まります。\n逆に違う人を殺してしまうとキルクールがとても長くなってしまいます。</value>
+  </data>
+  <data name="BountyHunterIntro" xml:space="preserve">
+    <value>標的を絶対仕留めろ</value>
+  </data>
+  <data name="BountyHunterMiss" xml:space="preserve">
+    <value>失敗時の追加クールダウン</value>
+  </data>
+  <data name="BountyHunterShort" xml:space="preserve">
+    <value>標的を絶対仕留めろ</value>
+  </data>
+  <data name="BountyHunterShowArrow" xml:space="preserve">
+    <value>矢印を表示する</value>
+  </data>
+  <data name="BountyHunterSuccess" xml:space="preserve">
+    <value>成功時のクールダウン</value>
+  </data>
+  <data name="ButtonBlocked" xml:space="preserve">
+    <value>使用不可</value>
+  </data>
+  <data name="CanDieToSheriff" xml:space="preserve">
+    <value>シェリフやヤクザに殺される</value>
+  </data>
+  <data name="CanEmergencyMeeting" xml:space="preserve">
+    <value>緊急会議を開ける</value>
+  </data>
+  <data name="CanFixBlackout" xml:space="preserve">
+    <value>停電を直せる</value>
+  </data>
+  <data name="CanFixComms" xml:space="preserve">
+    <value>通信妨害を直せる</value>
+  </data>
+  <data name="CanFixO2" xml:space="preserve">
+    <value>酸素サボを直せる</value>
+  </data>
+  <data name="CanFixReactor" xml:space="preserve">
+    <value>リアクター系サボを直せる</value>
+  </data>
+  <data name="CanKillNeutral" xml:space="preserve">
+    <value>第三陣営を殺せる</value>
+  </data>
+  <data name="CanMoveInVents" xml:space="preserve">
+    <value>ベントの中を移動できる</value>
+  </data>
+  <data name="CanSabotage" xml:space="preserve">
+    <value>サボタージュができる</value>
+  </data>
+  <data name="CanUseVents" xml:space="preserve">
+    <value>ベントが使える</value>
   </data>
   <data name="CanZoomInOutDead" xml:space="preserve">
     <value>死亡時に視野範囲を変更可能</value>
@@ -137,6 +269,9 @@
   </data>
   <data name="ChangePage" xml:space="preserve">
     <value>&lt;&gt;でページを変更</value>
+  </data>
+  <data name="ChangeTimingLabel" xml:space="preserve">
+    <value>変更タイミング</value>
   </data>
   <data name="ChatInfoDesc" xml:space="preserve">
     <value>Modが有効になっているため、&lt;br&gt;クイックチャットのみのプレイは不可能です。</value>
@@ -192,11 +327,53 @@
   <data name="ColorWasabi" xml:space="preserve">
     <value>ワサビ</value>
   </data>
+  <data name="CommandColorSucceed" xml:space="preserve">
+    <value>色の変更に成功しました。</value>
+  </data>
+  <data name="CommandErrorColor" xml:space="preserve">
+    <value>コマンドが無効です。\n使い方: /color {値}</value>
+  </data>
+  <data name="CommandErrorSize" xml:space="preserve">
+    <value>コマンドが無効です。\n使い方: /size {範囲}</value>
+  </data>
+  <data name="Crewmate" xml:space="preserve">
+    <value>クルーメイト</value>
+  </data>
+  <data name="CrewmateFull" xml:space="preserve">
+    <value>通常のクルーメイト</value>
+  </data>
+  <data name="CrewmateIntro" xml:space="preserve">
+    <value>タスクを行う</value>
+  </data>
+  <data name="CrewmateRoleCount" xml:space="preserve">
+    <value>クルーメイト役職数</value>
+  </data>
   <data name="CrewmateRolesCountMax" xml:space="preserve">
     <value>最大クルーメイトロール数</value>
   </data>
   <data name="CrewmateRolesCountMin" xml:space="preserve">
     <value>最小クルーメイトロール数</value>
+  </data>
+  <data name="CrewmateShort" xml:space="preserve">
+    <value>タスクを行う</value>
+  </data>
+  <data name="CrewmateWin" xml:space="preserve">
+    <value>クルーメイト陣営勝利</value>
+  </data>
+  <data name="CrewWinExtra" xml:space="preserve">
+    <value>クルーメイト{0}勝利</value>
+  </data>
+  <data name="CustomImpostor" xml:space="preserve">
+    <value>カスタムインポスター</value>
+  </data>
+  <data name="CustomImpostorFull" xml:space="preserve">
+    <value>個別の設定が可能なインポスター</value>
+  </data>
+  <data name="CustomImpostorIntro" xml:space="preserve">
+    <value>改造されてしまった！</value>
+  </data>
+  <data name="CustomImpostorShort" xml:space="preserve">
+    <value>改造されてしまった！</value>
   </data>
   <data name="DisableAdmin" xml:space="preserve">
     <value>アドミンの制限時間</value>
@@ -210,6 +387,27 @@
   <data name="DisableVitals" xml:space="preserve">
     <value>バイタルの制限時間</value>
   </data>
+  <data name="DoorAllOpen" xml:space="preserve">
+    <value>全開放</value>
+  </data>
+  <data name="DoorNormal" xml:space="preserve">
+    <value>通常モード</value>
+  </data>
+  <data name="DoorRandom" xml:space="preserve">
+    <value>ランダムモード</value>
+  </data>
+  <data name="DoorSelect" xml:space="preserve">
+    <value>選択</value>
+  </data>
+  <data name="DouseText" xml:space="preserve">
+    <value>塗る</value>
+  </data>
+  <data name="DownloadSubmerged" xml:space="preserve">
+    <value>Submerged\nをダウンロード</value>
+  </data>
+  <data name="ElecMapOptLabel" xml:space="preserve">
+    <value>ドアの動作</value>
+  </data>
   <data name="EnableCockpitAdmin" xml:space="preserve">
     <value>コックピットのアドミン有効化</value>
   </data>
@@ -219,24 +417,78 @@
   <data name="EnableRecordsAdmin" xml:space="preserve">
     <value>アーカイブのアドミン有効化</value>
   </data>
+  <data name="Engineer" xml:space="preserve">
+    <value>エンジニア</value>
+  </data>
+  <data name="EngineerCanFixSabo" xml:space="preserve">
+    <value>ボタンでサボタージュを直せる</value>
+  </data>
+  <data name="EngineerFull" xml:space="preserve">
+    <value>サボタージュを直したり、ベントに入ることができる。</value>
+  </data>
+  <data name="EngineerIntro" xml:space="preserve">
+    <value>メンテナンスを欠かすな</value>
+  </data>
+  <data name="EngineerRepairButtonText" xml:space="preserve">
+    <value>直す</value>
+  </data>
+  <data name="EngineerSaboFixCount" xml:space="preserve">
+    <value>直せる回数</value>
+  </data>
+  <data name="EngineerShort" xml:space="preserve">
+    <value>メンテナンスを欠かすな</value>
+  </data>
   <data name="ErrorHostNoVersion" xml:space="preserve">
-    <value>&lt;color=#00a2ff&gt;ホストがUltimateModsを導入していないかバージョンが違います。&lt;br/&gt;
+    <value>&lt;color=#00a2ff&gt;ホストがAmongDogUsを導入していないかバージョンが違います。&lt;br/&gt;
 バグ防止のため、あなたはあと{0}秒でキックされます。&lt;/color&gt;</value>
   </data>
   <data name="ErrorNewerVersion" xml:space="preserve">
-    <value>{0}のUltimateModsのバージョンがこのバージョンより新しいです。</value>
+    <value>{0}のAmongDogUsのバージョンがこのバージョンより新しいです。</value>
   </data>
   <data name="ErrorNotInstalled" xml:space="preserve">
-    <value>{0}のUltimateModsは正常に導入されていません。</value>
+    <value>{0}のAmongDogUsは正常に導入されていません。</value>
   </data>
   <data name="ErrorOlderVersion" xml:space="preserve">
-    <value>{0}のUltimateModsのバージョンがこのバージョンより古いです。</value>
+    <value>{0}のAmongDogUsのバージョンがこのバージョンより古いです。</value>
   </data>
   <data name="ErrorWrongVersion" xml:space="preserve">
-    <value>{0}のUltimateModsのバージョンがこのバージョンと違います。</value>
+    <value>{0}のAmongDogUsのバージョンがこのバージョンと違います。</value>
+  </data>
+  <data name="Every30s" xml:space="preserve">
+    <value>30秒ごと</value>
+  </data>
+  <data name="EveryoneLose" xml:space="preserve">
+    <value>全員敗北</value>
+  </data>
+  <data name="EvilHacker" xml:space="preserve">
+    <value>イビルハッカー</value>
+  </data>
+  <data name="EvilHackerCanHasBetterAdmin" xml:space="preserve">
+    <value>改良アドミンを使うことができる</value>
+  </data>
+  <data name="EvilHackerCanMoveEvenIfUsesAdmin" xml:space="preserve">
+    <value>アドミン使用時に移動できる</value>
+  </data>
+  <data name="EvilHackerFull" xml:space="preserve">
+    <value>いつでもどこでもアドミンを使うことができる。</value>
+  </data>
+  <data name="EvilHackerIntro" xml:space="preserve">
+    <value>行動を監視しよう</value>
+  </data>
+  <data name="EvilHackerShort" xml:space="preserve">
+    <value>皆はどこ？</value>
+  </data>
+  <data name="ExilePlayer" xml:space="preserve">
+    <value>{0}は{1}だった。</value>
   </data>
   <data name="FillCrewmate" xml:space="preserve">
     <value>最小最大を無視してクルー役職で埋める</value>
+  </data>
+  <data name="FinishedByHost" xml:space="preserve">
+    <value>ホストが強制終了を行った。</value>
+  </data>
+  <data name="ForceEnd" xml:space="preserve">
+    <value>強制終了</value>
   </data>
   <data name="FormatMultiplier" xml:space="preserve">
     <value>{0}x</value>
@@ -257,7 +509,28 @@
     <value>{0}回</value>
   </data>
   <data name="FormatVotes" xml:space="preserve">
-    <value>{0票</value>
+    <value>{0}票</value>
+  </data>
+  <data name="GameOptionsText" xml:space="preserve">
+    <value>ゲームの設定</value>
+  </data>
+  <data name="GhostsSeeRolesButton" xml:space="preserve">
+    <value>幽霊時全員の投票先が見える</value>
+  </data>
+  <data name="GhostsSeeTasksButton" xml:space="preserve">
+    <value>幽霊時全員のタスク残量が見える</value>
+  </data>
+  <data name="GhostsSeeVotesButton" xml:space="preserve">
+    <value>幽霊時全員の役職が見える</value>
+  </data>
+  <data name="HasImpostorVision" xml:space="preserve">
+    <value>インポスターの視界を持つ</value>
+  </data>
+  <data name="HasTasks" xml:space="preserve">
+    <value>タスクを持つ</value>
+  </data>
+  <data name="HideNameplates" xml:space="preserve">
+    <value>ネームプレートを非表示にする</value>
   </data>
   <data name="HideOutName" xml:space="preserve">
     <value>ネームタグの壁抜けを防止</value>
@@ -265,14 +538,188 @@
   <data name="HidePlayerName" xml:space="preserve">
     <value>プレイヤー名非表示</value>
   </data>
+  <data name="IgniteText" xml:space="preserve">
+    <value>炎上</value>
+  </data>
+  <data name="Impostor" xml:space="preserve">
+    <value>インポスター</value>
+  </data>
+  <data name="ImpostorFull" xml:space="preserve">
+    <value>通常の&lt;color=#ff1919ff&gt;インポスター&lt;/color&gt;</value>
+  </data>
+  <data name="ImpostorIntro" xml:space="preserve">
+    <value>サボタージュを行い全員を殺そう</value>
+  </data>
+  <data name="ImpostorRoleCount" xml:space="preserve">
+    <value>インポスター役職数</value>
+  </data>
   <data name="ImpostorRolesCountMax" xml:space="preserve">
     <value>最大インポスターロール数</value>
   </data>
   <data name="ImpostorRolesCountMin" xml:space="preserve">
     <value>最小インポスターロール数</value>
   </data>
+  <data name="ImpostorShort" xml:space="preserve">
+    <value>サボタージュを行い全員を殺そう</value>
+  </data>
+  <data name="ImpostorWin" xml:space="preserve">
+    <value>インポスター陣営勝利</value>
+  </data>
+  <data name="ImpostorWinExtra" xml:space="preserve">
+    <value>インポスター{0}勝利</value>
+  </data>
+  <data name="Jackal" xml:space="preserve">
+    <value>ジャッカル</value>
+  </data>
+  <data name="JackalAndSidekickHaveImpostorVision" xml:space="preserve">
+    <value>ジャッカル陣営がインポスターの視界を持つ</value>
+  </data>
+  <data name="JackalCanCreateSidekick" xml:space="preserve">
+    <value>ジャッカルがサイドキックを作れる</value>
+  </data>
+  <data name="JackalCanUseVents" xml:space="preserve">
+    <value>ジャッカルがベントを使用できる</value>
+  </data>
+  <data name="JackalCreateSidekickCooldown" xml:space="preserve">
+    <value>サイドキックを作るクールダウン</value>
+  </data>
+  <data name="JackalFull" xml:space="preserve">
+    <value>&lt;color=#ff1919ff&gt;インポスター&lt;/color&gt;、&lt;color=#8cffffff&gt;クルー&lt;/color&gt;、&lt;color=#ffff00ff&gt;その他陣営&lt;/color&gt;全員を殺すことができる。\n&lt;color=#00b4ebff&gt;サイドキック&lt;/color&gt;を作り出すことができる。\n&lt;color=#00b4ebff&gt;ジャッカル&lt;/color&gt;以外全員を消し去ろう</value>
+  </data>
+  <data name="JackalIntro" xml:space="preserve">
+    <value>全員殺しちゃえ!</value>
+  </data>
+  <data name="JackalPromotedFromSidekickCanCreateSidekick" xml:space="preserve">
+    <value>昇格したサイドキックがサイドキックを作れる</value>
+  </data>
+  <data name="JackalShort" xml:space="preserve">
+    <value>全員殺しちゃえ!</value>
+  </data>
+  <data name="JackalSidekickText" xml:space="preserve">
+    <value>サイドキック</value>
+  </data>
+  <data name="JackalWithSidekick" xml:space="preserve">
+    <value>サイドキックを作れる。</value>
+  </data>
+  <data name="Jester" xml:space="preserve">
+    <value>ジェスター</value>
+  </data>
+  <data name="JesterFull" xml:space="preserve">
+    <value>追放されれば勝利。/n&lt;color=#FF1919FF&gt;インポスター&lt;/color&gt;などに殺されないようにしよう。</value>
+  </data>
+  <data name="JesterIntro" xml:space="preserve">
+    <value>ここから出ていけ</value>
+  </data>
+  <data name="JesterMeetingButton" xml:space="preserve">
+    <value>ジェスターは緊急会議を開けない…</value>
+  </data>
+  <data name="JesterMustFinishTasks" xml:space="preserve">
+    <value>タスクを終了する必要がある</value>
+  </data>
+  <data name="JesterShort" xml:space="preserve">
+    <value>ここから出ていけ</value>
+  </data>
+  <data name="JesterWin" xml:space="preserve">
+    <value>ジェスター勝利</value>
+  </data>
+  <data name="JesterWinExtra" xml:space="preserve">
+    <value>ジェスター{0}勝利</value>
+  </data>
+  <data name="KillCooldowns" xml:space="preserve">
+    <value>キルクール</value>
+  </data>
+  <data name="Lighter" xml:space="preserve">
+    <value>ライター</value>
+  </data>
+  <data name="LighterCooldowns" xml:space="preserve">
+    <value>クールダウン</value>
+  </data>
+  <data name="LighterDurations" xml:space="preserve">
+    <value>効果時間</value>
+  </data>
+  <data name="LighterFull" xml:space="preserve">
+    <value>光ると視界が広くなる。</value>
+  </data>
+  <data name="LighterIntro" xml:space="preserve">
+    <value>光れ！</value>
+  </data>
+  <data name="LighterModeLightsOffVision" xml:space="preserve">
+    <value>ライト中、停電時視野</value>
+  </data>
+  <data name="LighterModeLightsOnVision" xml:space="preserve">
+    <value>ライト中、通常時視野</value>
+  </data>
+  <data name="LighterShort" xml:space="preserve">
+    <value>光って周りを見渡そう</value>
+  </data>
+  <data name="LighterText" xml:space="preserve">
+    <value>光る</value>
+  </data>
+  <data name="LobbySizeAlready" xml:space="preserve">
+    <value>このロビーの人数は既に{0}人です。</value>
+  </data>
+  <data name="LobbySizeChanged" xml:space="preserve">
+    <value>ロビーの上限人数を{0}人に設定しました。</value>
+  </data>
+  <data name="Madmate" xml:space="preserve">
+    <value>マッドメイト</value>
+  </data>
+  <data name="MadmateCanWinWhenTaskEnd" xml:space="preserve">
+    <value>タスクが終わると勝利できる</value>
+  </data>
+  <data name="MadmateFull" xml:space="preserve">
+    <value>インポスターを助けよう</value>
+  </data>
+  <data name="MadmateIntro" xml:space="preserve">
+    <value>インポスターを助けよう</value>
+  </data>
+  <data name="MadmateKnowImpostorTaskEnd" xml:space="preserve">
+    <value>タスクが終わるとインポスターが分かる</value>
+  </data>
+  <data name="MadmateShort" xml:space="preserve">
+    <value>インポスターを助けよう</value>
+  </data>
+  <data name="MakeBreadText" xml:space="preserve">
+    <value>パン屋さんのパンが焼きあがりました。</value>
+  </data>
+  <data name="ManualUpdate" xml:space="preserve">
+    <value>&lt;size=150%&gt;手動アップデート推奨&lt;/size&gt;</value>
+  </data>
+  <data name="MapOptionsText" xml:space="preserve">
+    <value>マップの設定</value>
+  </data>
   <data name="MaxNumberOfMeetings" xml:space="preserve">
     <value>緊急会議回数上限</value>
+  </data>
+  <data name="MaxShots" xml:space="preserve">
+    <value>撃てる最大数</value>
+  </data>
+  <data name="Mayor" xml:space="preserve">
+    <value>メイヤー</value>
+  </data>
+  <data name="MayorFull" xml:space="preserve">
+    <value>メイヤーは周りよりも多くの票を入れることができる。\nまた、回数制限を無視して会議を開くことができる。</value>
+  </data>
+  <data name="MayorIntro" xml:space="preserve">
+    <value>周りより多くの票を入れよう。</value>
+  </data>
+  <data name="MayorMeetingButton" xml:space="preserve">
+    <value>緊急会議ボタンを持つ</value>
+  </data>
+  <data name="MayorMeetingButtonText" xml:space="preserve">
+    <value>緊急会議</value>
+  </data>
+  <data name="MayorNumMeetingButton" xml:space="preserve">
+    <value>緊急会議ボタンの回数</value>
+  </data>
+  <data name="MayorNumVotes" xml:space="preserve">
+    <value>メイヤーの投票数</value>
+  </data>
+  <data name="MayorShort" xml:space="preserve">
+    <value>周りより多くの票を入れよう。</value>
+  </data>
+  <data name="MeetingStatus" xml:space="preserve">
+    <value>&lt;size=100%&gt;クルー {0} は&lt;br/&gt;&lt;color=red&gt;残り{1}回、全体では{2}回&lt;/color&gt;&lt;br/&gt;緊急会議を開始できる&lt;/size&gt;</value>
   </data>
   <data name="MirrorMap" xml:space="preserve">
     <value>反転マップ</value>
@@ -280,11 +727,23 @@
   <data name="MirrorMap1" xml:space="preserve">
     <value>反転マップを有効化</value>
   </data>
+  <data name="MisfireKillsTarget" xml:space="preserve">
+    <value>ミスでも相手を道連れにする</value>
+  </data>
+  <data name="ModifierCount" xml:space="preserve">
+    <value>属性出現数</value>
+  </data>
   <data name="ModifierCountMax" xml:space="preserve">
     <value>最大属性出現数</value>
   </data>
   <data name="ModifierCountMin" xml:space="preserve">
     <value>最小属性出現数</value>
+  </data>
+  <data name="ModOptionsText" xml:space="preserve">
+    <value>Modの設定</value>
+  </data>
+  <data name="NeutralRoleCount" xml:space="preserve">
+    <value>第三陣営役職数</value>
   </data>
   <data name="NeutralRolesCountMax" xml:space="preserve">
     <value>最大第三陣営ロール数</value>
@@ -298,14 +757,47 @@
   <data name="NoVoteIsSelfVote" xml:space="preserve">
     <value>自身に投票禁止</value>
   </data>
+  <data name="NumCommonTasks" xml:space="preserve">
+    <value>通常タスク</value>
+  </data>
+  <data name="NumLongTasks" xml:space="preserve">
+    <value>ロングタスク</value>
+  </data>
+  <data name="NumShortTasks" xml:space="preserve">
+    <value>ショートタスク</value>
+  </data>
+  <data name="O2Win" xml:space="preserve">
+    <value>&lt;size=80%&gt;酸素サボが発動した。&lt;/size&gt;</value>
+  </data>
   <data name="OldAirShipAdmin" xml:space="preserve">
     <value>旧AirShipアドミン仕様</value>
   </data>
+  <data name="OnlyCrewmate" xml:space="preserve">
+    <value>クルーメイトだけ</value>
+  </data>
+  <data name="OnMeetingEnd" xml:space="preserve">
+    <value>会議終了時</value>
+  </data>
+  <data name="OnStartSabotage" xml:space="preserve">
+    <value>サボタージュが始まったとき</value>
+  </data>
+  <data name="OPIntro" xml:space="preserve">
+    <value>とにかく生き残れ</value>
+  </data>
+  <data name="Opportunist" xml:space="preserve">
+    <value>オポチュニスト</value>
+  </data>
+  <data name="OpportunistExtra" xml:space="preserve">
+    <value>&amp; &lt;color=#00da00&gt;オポチュニスト&lt;/color&gt;</value>
+  </data>
   <data name="OptionOff" xml:space="preserve">
-    <value>オフ</value>
+    <value>&lt;color=#33ccff&gt;オフ&lt;/color&gt;</value>
   </data>
   <data name="OptionOn" xml:space="preserve">
-    <value>オン</value>
+    <value>&lt;color=#ff33cc&gt;オン&lt;/color&gt;</value>
+  </data>
+  <data name="PlatformTitle" xml:space="preserve">
+    <value>ーーープレイヤー名：機種名ーーー</value>
   </data>
   <data name="PlayRandomMaps" xml:space="preserve">
     <value>ランダムマップモード</value>
@@ -343,17 +835,170 @@
   <data name="RandomMapsEnableSubmerged" xml:space="preserve">
     <value>Submerged</value>
   </data>
+  <data name="ReactorWin" xml:space="preserve">
+    <value>&lt;size=80%&gt;リアクターサボが発動した。&lt;/size&gt;</value>
+  </data>
+  <data name="ReamingCount" xml:space="preserve">
+    <value>残り {0}回</value>
+  </data>
+  <data name="ReamingShots" xml:space="preserve">
+    <value>残り {0}発</value>
+  </data>
   <data name="RefundVoteDeath" xml:space="preserve">
     <value>投票先が死亡した時、再投票可</value>
   </data>
   <data name="RestrictDevices" xml:space="preserve">
     <value>特殊装置の制限</value>
   </data>
+  <data name="RestrictOutOfTime" xml:space="preserve">
+    <value>時間切れ</value>
+  </data>
   <data name="RestrictPerGame" xml:space="preserve">
     <value>試合毎</value>
   </data>
   <data name="RestrictPerTurn" xml:space="preserve">
     <value>ターン毎</value>
+  </data>
+  <data name="RoleNumAssigned" xml:space="preserve">
+    <value>人数</value>
+  </data>
+  <data name="RoleSummaryAlive" xml:space="preserve">
+    <value>生存</value>
+  </data>
+  <data name="RoleSummaryBomb" xml:space="preserve">
+    <value>大爆発！</value>
+  </data>
+  <data name="RoleSummaryDead" xml:space="preserve">
+    <value>死亡</value>
+  </data>
+  <data name="RoleSummaryDisconnected" xml:space="preserve">
+    <value>切断</value>
+  </data>
+  <data name="RoleSummaryExiled" xml:space="preserve">
+    <value>追放</value>
+  </data>
+  <data name="RoleSummaryLackO2" xml:space="preserve">
+    <value>酸素不足</value>
+  </data>
+  <data name="RoleSummaryMisfire" xml:space="preserve">
+    <value>誤爆</value>
+  </data>
+  <data name="RoleSummaryReactor" xml:space="preserve">
+    <value>リアクターサボ</value>
+  </data>
+  <data name="RoleSummaryRevival" xml:space="preserve">
+    <value>復活</value>
+  </data>
+  <data name="RoleSummarySabotage" xml:space="preserve">
+    <value>サボ</value>
+  </data>
+  <data name="RoleSummarySuicide" xml:space="preserve">
+    <value>自殺</value>
+  </data>
+  <data name="RoleSummaryText" xml:space="preserve">
+    <value>最終結果:</value>
+  </data>
+  <data name="RoleSummaryTorched" xml:space="preserve">
+    <value>焼殺</value>
+  </data>
+  <data name="Seer" xml:space="preserve">
+    <value>シーア</value>
+  </data>
+  <data name="SeerFull" xml:space="preserve">
+    <value>誰かが死んだ瞬間に画面全体が青く光る\n誰かが死んだ週の会議後に死体位置に行くと幽霊が見える</value>
+  </data>
+  <data name="SeerIntro" xml:space="preserve">
+    <value>他人の死んだ瞬間がわかる</value>
+  </data>
+  <data name="SeerLimitSoulDuration" xml:space="preserve">
+    <value>時間経過で幽霊が消える</value>
+  </data>
+  <data name="SeerMode" xml:space="preserve">
+    <value>モード</value>
+  </data>
+  <data name="SeerModeBoth" xml:space="preserve">
+    <value>死の点滅＆幽霊が見える</value>
+  </data>
+  <data name="SeerModeFlash" xml:space="preserve">
+    <value>死の点滅</value>
+  </data>
+  <data name="SeerModeSouls" xml:space="preserve">
+    <value>幽霊が見える</value>
+  </data>
+  <data name="SeerShort" xml:space="preserve">
+    <value>他人の死んだ瞬間がわかる</value>
+  </data>
+  <data name="SeerSoulDuration" xml:space="preserve">
+    <value>幽霊が見える時間</value>
+  </data>
+  <data name="SGIntro" xml:space="preserve">
+    <value>サングラスを手に入れてしまった...</value>
+  </data>
+  <data name="Sheriff" xml:space="preserve">
+    <value>シェリフ</value>
+  </data>
+  <data name="SheriffFull" xml:space="preserve">
+    <value>&lt;color=#FF1919FF&gt;インポスターたち&lt;/color&gt;を撃ち抜け</value>
+  </data>
+  <data name="SheriffIntro" xml:space="preserve">
+    <value>&lt;color=#FF1919FF&gt;インポスターたち&lt;/color&gt;を撃ち抜け</value>
+  </data>
+  <data name="SheriffShort" xml:space="preserve">
+    <value>&lt;color=#FF1919FF&gt;インポスターたち&lt;/color&gt;を撃ち抜け</value>
+  </data>
+  <data name="ShowRoleSummaryButton" xml:space="preserve">
+    <value>最終結果を表示する</value>
+  </data>
+  <data name="Sidekick" xml:space="preserve">
+    <value>サイドキック</value>
+  </data>
+  <data name="SidekickCanKill" xml:space="preserve">
+    <value>サイドキックがキルできる</value>
+  </data>
+  <data name="SidekickCanUseVents" xml:space="preserve">
+    <value>サイドキックがベントを使える</value>
+  </data>
+  <data name="SidekickFull" xml:space="preserve">
+    <value>&lt;color=#00b4ebff&gt;ジャッカル&lt;/color&gt;に加担する&lt;color=#00b4ebff&gt;ジャッカル&lt;/color&gt;陣営\n&lt;color=#00b4ebff&gt;ジャッカル&lt;/color&gt;がいなくなったときに&lt;color=#00b4ebff&gt;ジャッカル&lt;/color&gt;に昇格する</value>
+  </data>
+  <data name="SidekickPromotesToJackal" xml:space="preserve">
+    <value>サイドキックがジャッカルに昇格できる</value>
+  </data>
+  <data name="SidekickShort" xml:space="preserve">
+    <value>&lt;color=#00b4ebff&gt;ジャッカル&lt;/color&gt;を助けよう。</value>
+  </data>
+  <data name="Snitch" xml:space="preserve">
+    <value>スニッチ</value>
+  </data>
+  <data name="SnitchFull" xml:space="preserve">
+    <value>タスク完了時に&lt;color=#ff1919ff&gt;インポスターたち&lt;/color&gt;が誰なのかわかる。\n終了したら相手からもバレてしまうので注意しよう。</value>
+  </data>
+  <data name="SnitchIncludeTeamJackal" xml:space="preserve">
+    <value>ジャッカル陣営も表示</value>
+  </data>
+  <data name="SnitchIntro" xml:space="preserve">
+    <value>タスクを早く済ませて&lt;color=#FF1919FF&gt;インポスター&lt;/color&gt;を暴こう</value>
+  </data>
+  <data name="SnitchLeftTasksForReveal" xml:space="preserve">
+    <value>能力発動のためのタスク数</value>
+  </data>
+  <data name="SnitchShort" xml:space="preserve">
+    <value>タスクを早く終わらせよう</value>
+  </data>
+  <data name="SomeoneInVent" xml:space="preserve">
+    <value>誰かがベントに入ったとき</value>
+  </data>
+  <data name="SomeoneKilled" xml:space="preserve">
+    <value>誰かがキルされたとき</value>
+  </data>
+  <data name="SubmergedUpdateTitle" xml:space="preserve">
+    <value>Submerged アップデート</value>
+  </data>
+  <data name="Sunglasses" xml:space="preserve">
+    <value>サングラス</value>
+  </data>
+  <data name="SunglassesEye" xml:space="preserve">
+    <value>サングラスでの視界減少度</value>
   </data>
   <data name="TabTitleCrew" xml:space="preserve">
     <value>クルーの設定</value>
@@ -373,7 +1018,106 @@
   <data name="TabTitleOth" xml:space="preserve">
     <value>その他の設定</value>
   </data>
+  <data name="TaskWin" xml:space="preserve">
+    <value>&lt;size=80%&gt;タスクが全部完了した。&lt;/size&gt;</value>
+  </data>
+  <data name="TeamJackalWin" xml:space="preserve">
+    <value>ジャッカル陣営勝利</value>
+  </data>
+  <data name="TeamJackalWinExtra" xml:space="preserve">
+    <value>ジャッカル{0}陣営勝利</value>
+  </data>
+  <data name="TeleportButtonText" xml:space="preserve">
+    <value>テレポート</value>
+  </data>
+  <data name="Teleporter" xml:space="preserve">
+    <value>テレポーター</value>
+  </data>
+  <data name="TeleporterAllRandom" xml:space="preserve">
+    <value>全員</value>
+  </data>
+  <data name="TeleporterButtonCooldown" xml:space="preserve">
+    <value>テレポートクールダウン</value>
+  </data>
+  <data name="TeleporterFull" xml:space="preserve">
+    <value>ランダムなプレイヤーにテレポートできる。</value>
+  </data>
+  <data name="TeleporterIntro" xml:space="preserve">
+    <value>テレポートでみんなを惑わせよう</value>
+  </data>
+  <data name="TeleporterShort" xml:space="preserve">
+    <value>テレポートしよう</value>
+  </data>
+  <data name="TeleporterTeleported" xml:space="preserve">
+    <value>テレポート発生！</value>
+  </data>
+  <data name="TeleporterTeleportTo" xml:space="preserve">
+    <value>テレポート先候補</value>
+  </data>
+  <data name="TimeRemaining" xml:space="preserve">
+    <value>残り時間: {0}</value>
+  </data>
+  <data name="UnderTaker" xml:space="preserve">
+    <value>アンダーテイカー</value>
+  </data>
+  <data name="UnderTakerButtonCooldown" xml:space="preserve">
+    <value>運ぶクールダウン</value>
+  </data>
+  <data name="UnderTakerCanDumpDeadBodyInVent" xml:space="preserve">
+    <value>ベントに死体を捨てることができる</value>
+  </data>
+  <data name="UnderTakerDraggingSpeed" xml:space="preserve">
+    <value>運ぶときの足の速さ</value>
+  </data>
+  <data name="UnderTakerDragText" xml:space="preserve">
+    <value>掴む</value>
+  </data>
+  <data name="UnderTakerDropText" xml:space="preserve">
+    <value>置く</value>
+  </data>
+  <data name="UnderTakerDuration" xml:space="preserve">
+    <value>運ぶ制限時間</value>
+  </data>
+  <data name="UnderTakerFull" xml:space="preserve">
+    <value>死体をどこへでも動かすことができる。\n死体を隠して全員を殺そう。</value>
+  </data>
+  <data name="UnderTakerHasDuration" xml:space="preserve">
+    <value>運ぶ制限時間を持つ</value>
+  </data>
+  <data name="UnderTakerIntro" xml:space="preserve">
+    <value>死体を運べ</value>
+  </data>
+  <data name="UnderTakerShort" xml:space="preserve">
+    <value>死体を運べ</value>
+  </data>
+  <data name="UpdateADU" xml:space="preserve">
+    <value>ADUを\nアップデート</value>
+  </data>
+  <data name="UpdateFailed" xml:space="preserve">
+    <value>{0}のアップデートは失敗しました\n後で再度行うか\n手動でアップデートしてください</value>
+  </data>
+  <data name="UpdateSubmerged" xml:space="preserve">
+    <value>Submergedを\nアップデート</value>
+  </data>
+  <data name="UpdateSucceed" xml:space="preserve">
+    <value>{0}のアップデートは成功しました\nゲームを再起動してください</value>
+  </data>
+  <data name="UpdatingProcessText" xml:space="preserve">
+    <value>{0}をアップデート中\nしばらくお待ち下さい</value>
+  </data>
+  <data name="VentOption" xml:space="preserve">
+    <value>ベントの設定</value>
+  </data>
   <data name="VersionShower" xml:space="preserve">
     <value>AmongDogUs Ver.{0}</value>
+  </data>
+  <data name="Watcher" xml:space="preserve">
+    <value>ウォッチャー</value>
+  </data>
+  <data name="WTIntro" xml:space="preserve">
+    <value>みんなの投票先を覗いちゃおう</value>
+  </data>
+  <data name="Yakuza" xml:space="preserve">
+    <value>ヤクザ</value>
   </data>
 </root>

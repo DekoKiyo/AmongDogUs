@@ -46,16 +46,18 @@ internal static class ShipStatus_Awake_Patch
     internal static void Postfix(ShipStatus __instance)
     {
         MapUtilities.CachedShipStatus = __instance;
+        SubmergedCompatibility.SetupMap(__instance);
     }
 }
 
 [HarmonyPatch(typeof(ShipStatus), nameof(ShipStatus.OnDestroy))]
-public static class ShipStatus_OnDestroy_Patch
+internal static class ShipStatus_OnDestroy_Patch
 {
     [HarmonyPostfix, HarmonyPriority(Priority.Last)]
-    public static void Postfix()
+    internal static void Postfix()
     {
         MapUtilities.CachedShipStatus = null;
         MapUtilities.MapDestroyed();
+        SubmergedCompatibility.SetupMap(null);
     }
 }

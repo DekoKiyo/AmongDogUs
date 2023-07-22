@@ -7,6 +7,8 @@ global using Il2CppInterop.Runtime.Injection;
 global using BepInEx;
 global using BepInEx.Logging;
 global using BepInEx.Configuration;
+global using BepInEx.Bootstrap;
+global using BepInEx.Unity.IL2CPP.Utils;
 global using BepInEx.Unity.IL2CPP;
 global using BepInEx.Unity.IL2CPP.Utils.Collections;
 global using HarmonyLib;
@@ -14,6 +16,8 @@ global using InnerNet;
 global using Hazel;
 global using TMPro;
 global using Twitch;
+global using Mono.Cecil;
+global using Assets.InnerNet;
 global using AmongUs.Data;
 global using AmongUs.Data.Legacy;
 global using AmongUs.GameOptions;
@@ -25,6 +29,9 @@ global using UnityEngine.UI;
 global using UnityEngine.SceneManagement;
 global using Object = UnityEngine.Object;
 global using static UnityEngine.UI.Button;
+global using Reactor;
+global using Reactor.Utilities.Extensions;
+global using Reactor.Networking.Attributes;
 
 global using System;
 global using System.Reflection;
@@ -40,10 +47,12 @@ global using System.Net.Http;
 global using System.Threading.Tasks;
 
 global using AmongDogUs.Modules;
+global using AmongDogUs.Objects;
 global using AmongDogUs.Patches;
 global using AmongDogUs.Properties;
 global using AmongDogUs.Roles;
 global using AmongDogUs.Utilities;
+global using static AmongDogUs.ColorDictionary;
 global using static AmongDogUs.GameHistory;
 global using ModResources = AmongDogUs.Properties.Resources;
 
@@ -52,6 +61,7 @@ namespace AmongDogUs;
 [BepInPlugin(PLUGIN_GUID, PLUGIN_NAME, PLUGIN_VERSION)]
 [BepInDependency(SUBMERGED_GUID, BepInDependency.DependencyFlags.SoftDependency)]
 [BepInProcess("Among Us.exe")]
+[ReactorModFlags(Reactor.Networking.ModFlags.RequireOnAllClients)]
 internal class Main : BasePlugin
 {
     internal const string PLUGIN_GUID = "con.DekoKiyo.AmongDogUs";
@@ -59,10 +69,10 @@ internal class Main : BasePlugin
     internal const string PLUGIN_VERSION = "1.0.0.0";
     internal static readonly Version Version = Assembly.GetExecutingAssembly().GetName().Version;
 
-    internal const int PLUGIN_VERSION_MAJOR = 1;
-    internal const int PLUGIN_VERSION_MINOR = 0;
-    internal const int PLUGIN_VERSION_BUILD = 0;
-    internal const int PLUGIN_VERSION_REVISION = 0;
+    internal static readonly int PLUGIN_VERSION_MAJOR = Version.Major;
+    internal static readonly int PLUGIN_VERSION_MINOR = Version.Minor;
+    internal static readonly int PLUGIN_VERSION_BUILD = Version.Build;
+    internal static readonly int PLUGIN_VERSION_REVISION = Version.Revision;
 
     internal const string SUBMERGED_GUID = "Submerged";
 
@@ -75,7 +85,7 @@ internal class Main : BasePlugin
     internal static ConfigEntry<bool> GhostsSeeTasks { get; set; }
     internal static ConfigEntry<bool> GhostsSeeRoles { get; set; }
     internal static ConfigEntry<bool> GhostsSeeVotes { get; set; }
-    internal static ConfigEntry<bool> HideNameplates { get; set; }
+    // internal static ConfigEntry<bool> HideNameplates { get; set; }
     internal static ConfigEntry<bool> ShowRoleSummary { get; set; }
     internal static ConfigEntry<bool> EnableCustomSounds { get; set; }
     internal static ConfigEntry<bool> ShowLighterDarker { get; set; }
@@ -109,7 +119,7 @@ internal class Main : BasePlugin
         GhostsSeeRoles = Config.Bind("Custom", "Ghosts See Roles", true);
         GhostsSeeVotes = Config.Bind("Custom", "Ghosts See Votes", true);
         ShowRoleSummary = Config.Bind("Custom", "ShowRoleSummary", false);
-        HideNameplates = Config.Bind("Custom", "Hide Nameplates", false);
+        // HideNameplates = Config.Bind("Custom", "Hide Nameplates", false);
         EnableCustomSounds = Config.Bind("Custom", "Enable Custom Sounds", true);
         LanguageNum = Config.Bind("Custom", "Language Number", 0);
         ShowLighterDarker = Config.Bind("Custom", "Show Lighter / Darker", false);
@@ -134,12 +144,17 @@ internal class Main : BasePlugin
         AirShipDoorMode = Config.Bind("MapOption", "4ElecDoorMode", 0);
         AirShipDoorChangeTiming = Config.Bind("MapOption", "4ElecDoorChangeTiming", 0);
 
+        Harmony.PatchAll();
+
         // Write here to need
         OnlineMenu.Initialize();
+        RoleInfoList.Load();
+        ModifierInfoList.Load();
         CustomOptionsHolder.Load();
         CustomColors.Load();
-
-        Harmony.PatchAll();
+        SubmergedCompatibility.Initialize();
+        AddComponent<ModUpdateBehaviour>();
+        ClassInjector.RegisterTypeInIl2Cpp(typeof(AirShipOption));
 
         Logger.Log(LogLevel.Info, "Initialized!");
     }
@@ -185,7 +200,7 @@ internal static class AmongDogUs
         Role.allRoles.Do(x => x.OnMeetingEnd());
         Modifier.allModifiers.Do(x => x.OnMeetingEnd());
 
-        // CustomOverlays.HideInfoOverlay();
+        CustomOverlays.HideInfoOverlay();
     }
 
     internal static void Clear()

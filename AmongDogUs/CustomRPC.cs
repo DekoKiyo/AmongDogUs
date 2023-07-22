@@ -49,6 +49,7 @@ internal enum ECustomRPC : byte
     AltruistKill,
     AltruistRevive,
     UncheckedCmdReportDeadBody,
+    EngineerFixSubmergedOxygen,
 }
 
 internal static class RPCProcedure
@@ -191,21 +192,24 @@ internal static class RPCProcedure
                     byte reportTarget = reader.ReadByte();
                     UncheckedCmdReportDeadBody(reportSource, reportTarget);
                     break;
+                case (byte)ECustomRPC.EngineerFixSubmergedOxygen:
+                    EngineerFixSubmergedOxygen();
+                    break;
             }
         }
     }
 
     internal static void ResetVariables()
     {
-        // Options.ClearAndReloadOptions();
+        ModMapOptions.ClearAndReloadOptions();
         AmongDogUs.ClearAndReloadRoles();
         ClearGameHistory();
-        // AdminPatch.ResetData();
-        // CameraPatch.ResetData();
-        // VitalsPatch.ResetData();
-        // RolesButtons.SetButtonCooldowns();
-        // CustomOverlays.ResetOverlays();
-        // MapBehaviorPatch.ResetIcons();
+        AdminPatch.ResetData();
+        CameraPatch.ResetData();
+        VitalsPatch.ResetData();
+        RoleData.SetCustomButtonCooldowns();
+        CustomOverlays.ResetOverlays();
+        MapBehaviorPatch.ResetIcons();
     }
 
     internal static void ShareOptions(int NumberOfOptions, MessageReader reader)
@@ -243,7 +247,7 @@ internal static class RPCProcedure
     {
         PlayerControl.AllPlayerControls.ToArray().DoIf(
             x => x.PlayerId == playerId,
-            x => x.SetRole((RoleId)roleId)
+            x => x.SetRole((RoleType)roleId)
         );
     }
 
@@ -251,23 +255,23 @@ internal static class RPCProcedure
     {
         PlayerControl.AllPlayerControls.ToArray().DoIf(
             x => x.PlayerId == playerId,
-            x => x.AddModifier((ModifierId)modId)
+            x => x.AddModifier((ModifierType)modId)
         );
     }
 
     internal static void UseAdminTime(float time)
     {
-        // Options.RestrictAdminTime -= time;
+        ModMapOptions.RestrictAdminTime -= time;
     }
 
     internal static void UseCameraTime(float time)
     {
-        // Options.RestrictCamerasTime -= time;
+        ModMapOptions.RestrictCamerasTime -= time;
     }
 
     internal static void UseVitalsTime(float time)
     {
-        // Options.RestrictVitalsTime -= time;
+        ModMapOptions.RestrictVitalsTime -= time;
     }
 
     internal static void UncheckedMurderPlayer(byte sourceId, byte targetId, byte showAnimation)
@@ -276,29 +280,29 @@ internal static class RPCProcedure
         PlayerControl target = Helpers.PlayerById(targetId);
         if (source != null && target != null)
         {
-            if (showAnimation == 0) KillAnimationCoPerformKillPatch.hideNextAnimation = true;
+            if (showAnimation == 0) KillAnimationPatch.hideNextAnimation = true;
             source.MurderPlayer(target);
         }
     }
 
     internal static void SheriffKill(byte sheriffId, byte targetId, bool misfire)
     {
-        // PlayerControl sheriff = Helpers.PlayerById(sheriffId);
-        // PlayerControl target = Helpers.PlayerById(targetId);
-        // if (sheriff == null || target == null) return;
+        PlayerControl sheriff = Helpers.PlayerById(sheriffId);
+        PlayerControl target = Helpers.PlayerById(targetId);
+        if (sheriff == null || target == null) return;
 
-        // if (sheriff != null) Sheriff.ReamingShots--;
+        if (sheriff != null) Sheriff.ReamingShots--;
 
-        // if (misfire)
-        // {
-        //     sheriff.MurderPlayer(sheriff);
-        //     finalStatuses[sheriffId] = EFinalStatus.Misfire;
+        if (misfire)
+        {
+            sheriff.MurderPlayer(sheriff);
+            finalStatuses[sheriffId] = EFinalStatus.Misfire;
 
-        //     if (!Sheriff.MisfireKillsTarget) return;
-        //     finalStatuses[targetId] = EFinalStatus.Misfire;
-        // }
+            if (!Sheriff.MisfireKillsTarget) return;
+            finalStatuses[targetId] = EFinalStatus.Misfire;
+        }
 
-        // sheriff.MurderPlayer(target);
+        sheriff.MurderPlayer(target);
     }
 
     internal static void UpdateMeeting(byte targetId, bool dead = true)
@@ -337,8 +341,8 @@ internal static class RPCProcedure
 
     internal static void EngineerUsedRepair(byte engineerId)
     {
-        // PlayerControl engineer = Helpers.PlayerById(engineerId);
-        // if (engineer != null) ProEngineer.ReamingCounts--;
+        PlayerControl engineer = Helpers.PlayerById(engineerId);
+        if (engineer != null) ProEngineer.ReamingCounts--;
     }
 
     internal static void UncheckedSetTasks(byte playerId, byte[] taskTypeIds)
@@ -351,68 +355,68 @@ internal static class RPCProcedure
 
     internal static void UncheckedEndGame(byte GameOverReason)
     {
-        // OnGameEndPatch.EndGameNavigationPatch.EndGameManagerSetUpPatch.CheckEndCriteriaPatch.UncheckedEndGame((CustomGameOverReason)GameOverReason);
+        OnGameEndPatch.EndGameNavigationPatch.EndGameManagerSetUpPatch.CheckEndCriteriaPatch.UncheckedEndGame((CustomGameOverReason)GameOverReason);
     }
 
     internal static void DragPlaceBody(byte playerId)
     {
-        // DeadBody[] Array = Object.FindObjectsOfType<DeadBody>();
-        // for (int i = 0; i < Array.Length; i++)
-        // {
-        //     if (GameData.Instance.GetPlayerById(Array[i].ParentId).PlayerId == playerId)
-        //     {
-        //         if (!UnderTaker.DraggingBody)
-        //         {
-        //             UnderTaker.DraggingBody = true;
-        //             UnderTaker.BodyId = playerId;
-        //             if (GameManager.Instance.LogicOptions.currentGameOptions.GetByte(ByteOptionNames.MapId) == 5)
-        //             {
-        //                 GameObject vent = GameObject.Find("LowerCentralVent");
-        //                 vent.GetComponent<BoxCollider2D>().enabled = false;
-        //             }
-        //         }
-        //         else
-        //         {
-        //             UnderTaker.DraggingBody = false;
-        //             UnderTaker.BodyId = 0;
-        //             foreach (var underTaker in UnderTaker.allPlayers)
-        //             {
-        //                 var currentPosition = underTaker.GetTruePosition();
-        //                 var velocity = underTaker.gameObject.GetComponent<Rigidbody2D>().velocity.normalized;
-        //                 var newPos = ((Vector2)underTaker.GetTruePosition()) - (velocity / 3) + new Vector2(0.15f, 0.25f) + Array[i].myCollider.offset;
-        //                 if (!PhysicsHelpers.AnythingBetween(
-        //                     currentPosition,
-        //                     newPos,
-        //                     Constants.ShipAndObjectsMask,
-        //                     false
-        //                 ))
-        //                 {
-        //                     if (GameManager.Instance.LogicOptions.currentGameOptions.GetByte(ByteOptionNames.MapId) == 5)
-        //                     {
-        //                         Array[i].transform.position = newPos;
-        //                         Array[i].transform.position += new Vector3(0, 0, -0.5f);
-        //                         GameObject vent = GameObject.Find("LowerCentralVent");
-        //                         vent.GetComponent<BoxCollider2D>().enabled = true;
-        //                     }
-        //                     else
-        //                     {
-        //                         Array[i].transform.position = newPos;
-        //                     }
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
+        DeadBody[] Array = Object.FindObjectsOfType<DeadBody>();
+        for (int i = 0; i < Array.Length; i++)
+        {
+            if (GameData.Instance.GetPlayerById(Array[i].ParentId).PlayerId == playerId)
+            {
+                if (!UnderTaker.DraggingBody)
+                {
+                    UnderTaker.DraggingBody = true;
+                    UnderTaker.BodyId = playerId;
+                    if (GameManager.Instance.LogicOptions.currentGameOptions.GetByte(ByteOptionNames.MapId) == 5)
+                    {
+                        GameObject vent = GameObject.Find("LowerCentralVent");
+                        vent.GetComponent<BoxCollider2D>().enabled = false;
+                    }
+                }
+                else
+                {
+                    UnderTaker.DraggingBody = false;
+                    UnderTaker.BodyId = 0;
+                    foreach (var underTaker in UnderTaker.AllPlayers)
+                    {
+                        var currentPosition = underTaker.GetTruePosition();
+                        var velocity = underTaker.gameObject.GetComponent<Rigidbody2D>().velocity.normalized;
+                        var newPos = underTaker.GetTruePosition() - (velocity / 3) + new Vector2(0.15f, 0.25f) + Array[i].myCollider.offset;
+                        if (!PhysicsHelpers.AnythingBetween(
+                            currentPosition,
+                            newPos,
+                            Constants.ShipAndObjectsMask,
+                            false
+                        ))
+                        {
+                            if (GameManager.Instance.LogicOptions.currentGameOptions.GetByte(ByteOptionNames.MapId) == 5)
+                            {
+                                Array[i].transform.position = newPos;
+                                Array[i].transform.position += new Vector3(0, 0, -0.5f);
+                                GameObject vent = GameObject.Find("LowerCentralVent");
+                                vent.GetComponent<BoxCollider2D>().enabled = true;
+                            }
+                            else
+                            {
+                                Array[i].transform.position = newPos;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
     internal static void UnderTakerReSetValues()
     {
-        // // Restore UnderTaker values when rewind time
-        // if (PlayerControl.LocalPlayer.IsRole(RoleId.UnderTaker) && UnderTaker.DraggingBody)
-        // {
-        //     UnderTaker.DraggingBody = false;
-        //     UnderTaker.BodyId = 0;
-        // }
+        // Restore UnderTaker values when rewind time
+        if (PlayerControl.LocalPlayer.IsRole(RoleType.UnderTaker) && UnderTaker.DraggingBody)
+        {
+            UnderTaker.DraggingBody = false;
+            UnderTaker.BodyId = 0;
+        }
     }
 
     internal static void CleanBody(byte playerId)
@@ -438,90 +442,94 @@ internal static class RPCProcedure
 
     internal static void TeleporterTeleport(byte playerId)
     {
-        // var p = Helpers.PlayerById(playerId);
-        // PlayerControl.LocalPlayer.transform.position = p.transform.position;
-        // new CustomMessage(string.Format(LocalizationManager.GetString(TransKey.TeleporterTeleported), p.cosmetics.nameText.text), 3);
+        var p = Helpers.PlayerById(playerId);
+        PlayerControl.LocalPlayer.transform.position = p.transform.position;
+        _ = new CustomMessage(string.Format(ModResources.TeleporterTeleported, p.cosmetics.nameText.text), 3);
         // SoundManager.Instance.PlaySound(Teleport, false, 0.8f);
     }
 
     internal static void ErasePlayerRoles(byte playerId, bool ClearNeutralTasks = true)
     {
-        // PlayerControl player = Helpers.PlayerById(playerId);
-        // if (player == null) return;
+        PlayerControl player = Helpers.PlayerById(playerId);
+        if (player == null) return;
 
-        // // Don't give a former neutral role tasks because that destroys the balance.
-        // if (player.IsNeutral() && ClearNeutralTasks)
-        //     player.ClearAllTasks();
+        // Don't give a former neutral role tasks because that destroys the balance.
+        if (player.IsNeutral() && ClearNeutralTasks) player.ClearAllTasks();
 
-        // player.EraseAllRoles();
-        // player.EraseAllModifiers();
+        player.EraseAllRoles();
+        player.EraseAllModifiers();
     }
 
     internal static void JackalCreatesSidekick(byte targetId)
     {
-        // PlayerControl Player = Helpers.PlayerById(targetId);
-        // if (Player == null) return;
+        PlayerControl Player = Helpers.PlayerById(targetId);
+        if (Player == null) return;
 
-        // FastDestroyableSingleton<RoleManager>.Instance.SetRole(Player, RoleTypes.Crewmate);
-        // ErasePlayerRoles(Player.PlayerId, true);
-        // Player.SetRole(RoleId.Sidekick);
-        // if (Player.PlayerId == PlayerControl.LocalPlayer.PlayerId) PlayerControl.LocalPlayer.moveable = true;
+        FastDestroyableSingleton<RoleManager>.Instance.SetRole(Player, RoleTypes.Crewmate);
+        ErasePlayerRoles(Player.PlayerId, true);
+        Player.SetRole(RoleType.Sidekick);
+        if (Player.PlayerId == PlayerControl.LocalPlayer.PlayerId) PlayerControl.LocalPlayer.moveable = true;
 
-        // Jackal.CanSidekick = false;
+        Jackal.CanSidekick = false;
     }
 
     internal static void SidekickPromotes(byte sidekickId)
     {
-        // PlayerControl sidekick = Helpers.PlayerById(sidekickId);
-        // ErasePlayerRoles(sidekickId);
-        // sidekick.SetRole(RoleId.Jackal);
-        // Jackal.CanSidekick = true;
+        PlayerControl sidekick = Helpers.PlayerById(sidekickId);
+        ErasePlayerRoles(sidekickId);
+        sidekick.SetRole(RoleType.Jackal);
+        Jackal.CanSidekick = true;
     }
 
     internal static void ArsonistDouse(byte playerId)
     {
-        // Arsonist.DousedPlayers.Add(Helpers.PlayerById(playerId));
+        Arsonist.DousedPlayers.Add(Helpers.PlayerById(playerId));
     }
 
     internal static void ArsonistWin()
     {
-        // UncheckedEndGame((byte)CustomGameOverReason.ArsonistWin);
-        // var livingPlayers = PlayerControl.AllPlayerControls.ToArray().Where(p => !p.IsRole(RoleId.Arsonist) && p.IsAlive());
-        // foreach (PlayerControl p in livingPlayers)
-        // {
-        //     p.Exiled();
-        //     finalStatuses[p.PlayerId] = EFinalStatus.Torched;
-        // }
+        UncheckedEndGame((byte)CustomGameOverReason.ArsonistWin);
+        var livingPlayers = PlayerControl.AllPlayerControls.ToArray().Where(p => !p.IsRole(RoleType.Arsonist) && p.IsAlive());
+        foreach (PlayerControl p in livingPlayers)
+        {
+            p.Exiled();
+            finalStatuses[p.PlayerId] = EFinalStatus.Torched;
+        }
     }
 
     internal static void AltruistKill(byte AltruistId)
     {
-        // UncheckedMurderPlayer(AltruistId, AltruistId, (byte)0);
-        // finalStatuses[AltruistId] = EFinalStatus.Suicide;
+        UncheckedMurderPlayer(AltruistId, AltruistId, 0);
+        finalStatuses[AltruistId] = EFinalStatus.Suicide;
     }
 
     internal static void AltruistRevive(byte parentId, byte AltruistId)
     {
-        // PlayerControl Altruist = Helpers.PlayerById(AltruistId);
-        // PlayerControl TargetPlayer = Helpers.PlayerById(parentId);
-        // DeadBody Target = Helpers.DeadBodyById(parentId);
+        PlayerControl Altruist = Helpers.PlayerById(AltruistId);
+        PlayerControl TargetPlayer = Helpers.PlayerById(parentId);
+        DeadBody Target = Helpers.DeadBodyById(parentId);
 
-        // if (Altruist || Target || TargetPlayer == null) return;
+        if (Altruist || Target || TargetPlayer == null) return;
 
-        // var Position = Target.TruePosition;
-        // CleanBody(parentId);
+        var Position = Target.TruePosition;
+        CleanBody(parentId);
 
-        // foreach (DeadBody deadBody in GameObject.FindObjectsOfType<DeadBody>()) if (deadBody.ParentId == AltruistId) CleanBody(AltruistId);
-        // TargetPlayer.Revive();
-        // FastDestroyableSingleton<RoleManager>.Instance.SetRole(TargetPlayer, TargetPlayer.IsImpostor() ? RoleTypes.Impostor : RoleTypes.Crewmate);
-        // finalStatuses[TargetPlayer.PlayerId] = FinalStatus.Revival;
-        // TargetPlayer.NetTransform.SnapTo(new(Position.x, Position.y + 0.3636f));
+        foreach (DeadBody deadBody in Object.FindObjectsOfType<DeadBody>()) if (deadBody.ParentId == AltruistId) CleanBody(AltruistId);
+        TargetPlayer.Revive();
+        FastDestroyableSingleton<RoleManager>.Instance.SetRole(TargetPlayer, TargetPlayer.IsImpostor() ? RoleTypes.Impostor : RoleTypes.Crewmate);
+        finalStatuses[TargetPlayer.PlayerId] = EFinalStatus.Revival;
+        TargetPlayer.NetTransform.SnapTo(new(Position.x, Position.y + 0.3636f));
     }
 
     internal static void UncheckedCmdReportDeadBody(byte sourceId, byte targetId)
     {
-        // PlayerControl source = Helpers.PlayerById(sourceId);
-        // var t = targetId == Byte.MaxValue ? null : Helpers.PlayerById(targetId).Data;
-        // source?.ReportDeadBody(t);
+        PlayerControl source = Helpers.PlayerById(sourceId);
+        var t = targetId == byte.MaxValue ? null : Helpers.PlayerById(targetId).Data;
+        source?.ReportDeadBody(t);
+    }
+
+    internal static void EngineerFixSubmergedOxygen()
+    {
+        SubmergedCompatibility.RepairOxygen();
     }
 }
