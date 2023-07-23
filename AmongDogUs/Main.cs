@@ -114,7 +114,7 @@ internal class Main : BasePlugin
         GhostsSeeTasks = Config.Bind("Custom", "Ghosts See Remaining Tasks", true);
         GhostsSeeRoles = Config.Bind("Custom", "Ghosts See Roles", true);
         GhostsSeeVotes = Config.Bind("Custom", "Ghosts See Votes", true);
-        ShowRoleSummary = Config.Bind("Custom", "ShowRoleSummary", false);
+        ShowRoleSummary = Config.Bind("Custom", "ShowRoleSummary", true);
         EnableCustomSounds = Config.Bind("Custom", "Enable Custom Sounds", true);
         ShowLighterDarker = Config.Bind("Custom", "Show Lighter / Darker", false);
         RoomCodeText = Config.Bind("Custom", "Streamer Mode Room Code Text", "Among Dog Us");
