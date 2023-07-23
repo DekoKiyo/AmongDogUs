@@ -131,9 +131,9 @@ internal static class OnGameEndPatch
             TempData.winners = new Il2CppSystem.Collections.Generic.List<WinningPlayerData>();
             foreach (var jester in Jester.players)
             {
+                jester.player.Data.IsDead = true;
                 WinningPlayerData wpd = new(jester.player.Data);
                 TempData.winners.Add(wpd);
-                jester.player.Data.IsDead = true;
                 AdditionalTempData.WinningPlayers.Add(jester.player.Data.PlayerId);
             }
             AdditionalTempData.winCondition = WinCondition.JesterWin;

@@ -12,7 +12,9 @@ internal class ModUpdateBehaviour : MonoBehaviour
     internal static bool UpdateInProgress = false;
 
     internal static ModUpdateBehaviour Instance { get; private set; }
+    internal ModUpdateBehaviour() { }
     internal ModUpdateBehaviour(IntPtr ptr) : base(ptr) { }
+
     internal class UpdateData
     {
         internal string Content;
@@ -52,6 +54,7 @@ internal class ModUpdateBehaviour : MonoBehaviour
 
         foreach (var file in Directory.GetFiles(Paths.PluginPath, "*.old")) File.Delete(file);
     }
+
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (UpdateInProgress || scene.name != "MainMenu") return;
@@ -78,6 +81,7 @@ internal class ModUpdateBehaviour : MonoBehaviour
         }));
 
         var text = button.transform.GetComponentInChildren<TMP_Text>();
+        text.color = Color.red;
         string t = ModResources.UpdateADU;
         if (ADUUpdate is null && SubmergedUpdate is not null) t = SubmergedCompatibility.Loaded ? ModResources.UpdateSubmerged : ModResources.DownloadSubmerged;
 
@@ -137,7 +141,7 @@ internal class ModUpdateBehaviour : MonoBehaviour
         while (!download.IsCompleted) yield return null;
 
         button.SetActive(true);
-        popup.TextAreaTMP.text = download.Result ? string.Format(ModResources.UpdateSucceed, updateName): string.Format(ModResources.UpdateFailed, updateName);
+        popup.TextAreaTMP.text = download.Result ? string.Format(ModResources.UpdateSucceed, updateName) : string.Format(ModResources.UpdateFailed, updateName);
     }
 
     private static int announcementNumber = 501;

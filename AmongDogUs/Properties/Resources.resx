@@ -154,7 +154,8 @@
     <value>クルーを復活させよう。</value>
   </data>
   <data name="AnnouncementUpdate" xml:space="preserve">
-    <value>&lt;size=150%&gt;新しい{0}のアップデート{1}が利用可能&lt;/size&gt;\n{2}</value>
+    <value>&lt;size=150%&gt;新しい{0}のアップデート{1}が利用可能&lt;/size&gt;
+{2}</value>
   </data>
   <data name="Arsonist" xml:space="preserve">
     <value>アーソニスト</value>
@@ -274,7 +275,8 @@
     <value>変更タイミング</value>
   </data>
   <data name="ChatInfoDesc" xml:space="preserve">
-    <value>Modが有効になっているため、&lt;br&gt;クイックチャットのみのプレイは不可能です。</value>
+    <value>Modが有効になっているため、
+クイックチャットのみのプレイは不可能です。</value>
   </data>
   <data name="ColorBlurple" xml:space="preserve">
     <value>ブラープル</value>
@@ -331,10 +333,12 @@
     <value>色の変更に成功しました。</value>
   </data>
   <data name="CommandErrorColor" xml:space="preserve">
-    <value>コマンドが無効です。\n使い方: /color {値}</value>
+    <value>コマンドが無効です。
+使い方: /color {値}</value>
   </data>
   <data name="CommandErrorSize" xml:space="preserve">
-    <value>コマンドが無効です。\n使い方: /size {範囲}</value>
+    <value>コマンドが無効です。
+使い方: /size {範囲}</value>
   </data>
   <data name="Crewmate" xml:space="preserve">
     <value>クルーメイト</value>
@@ -382,7 +386,8 @@
     <value>カメラの制限時間</value>
   </data>
   <data name="DisableOnlineText" xml:space="preserve">
-    <value>Modが有効になっているため、&lt;br&gt;公開ルームは利用できません。</value>
+    <value>Modが有効になっているため、
+公開ルームは利用できません。</value>
   </data>
   <data name="DisableVitals" xml:space="preserve">
     <value>バイタルの制限時間</value>
@@ -403,7 +408,7 @@
     <value>塗る</value>
   </data>
   <data name="DownloadSubmerged" xml:space="preserve">
-    <value>Submerged\nをダウンロード</value>
+    <value>Submergedをダウンロード</value>
   </data>
   <data name="ElecMapOptLabel" xml:space="preserve">
     <value>ドアの動作</value>
@@ -439,7 +444,7 @@
     <value>メンテナンスを欠かすな</value>
   </data>
   <data name="ErrorHostNoVersion" xml:space="preserve">
-    <value>&lt;color=#00a2ff&gt;ホストがAmongDogUsを導入していないかバージョンが違います。&lt;br/&gt;
+    <value>&lt;color=#00a2ff&gt;ホストがAmongDogUsを導入していないかバージョンが違います。
 バグ防止のため、あなたはあと{0}秒でキックされます。&lt;/color&gt;</value>
   </data>
   <data name="ErrorNewerVersion" xml:space="preserve">
@@ -719,7 +724,9 @@
     <value>周りより多くの票を入れよう。</value>
   </data>
   <data name="MeetingStatus" xml:space="preserve">
-    <value>&lt;size=100%&gt;クルー {0} は&lt;br/&gt;&lt;color=red&gt;残り{1}回、全体では{2}回&lt;/color&gt;&lt;br/&gt;緊急会議を開始できる&lt;/size&gt;</value>
+    <value>&lt;size=100%&gt;クルー {0} は
+&lt;color=red&gt;残り{1}回、全体では{2}回&lt;/color&gt;
+緊急会議を開始できる&lt;/size&gt;</value>
   </data>
   <data name="MirrorMap" xml:space="preserve">
     <value>反転マップ</value>
@@ -1091,19 +1098,23 @@
     <value>死体を運べ</value>
   </data>
   <data name="UpdateADU" xml:space="preserve">
-    <value>ADUを\nアップデート</value>
+    <value>ADUをアップデート</value>
   </data>
   <data name="UpdateFailed" xml:space="preserve">
-    <value>{0}のアップデートは失敗しました\n後で再度行うか\n手動でアップデートしてください</value>
+    <value>{0}のアップデートは失敗しました
+後で再度行うか
+手動でアップデートしてください</value>
   </data>
   <data name="UpdateSubmerged" xml:space="preserve">
-    <value>Submergedを\nアップデート</value>
+    <value>Submergedをアップデート</value>
   </data>
   <data name="UpdateSucceed" xml:space="preserve">
-    <value>{0}のアップデートは成功しました\nゲームを再起動してください</value>
+    <value>{0}のアップデートは成功しました
+ゲームを再起動してください</value>
   </data>
   <data name="UpdatingProcessText" xml:space="preserve">
-    <value>{0}をアップデート中\nしばらくお待ち下さい</value>
+    <value>{0}をアップデート中
+しばらくお待ち下さい</value>
   </data>
   <data name="VentOption" xml:space="preserve">
     <value>ベントの設定</value>

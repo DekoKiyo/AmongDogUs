@@ -30,6 +30,9 @@ internal static class HudManagerPatch
                 AmongUsClient.Instance.FinishRpcImmediately(writer);
                 RPCProcedure.UncheckedEndGame((byte)CustomGameOverReason.ForceEnd);
             }
+
+            ResetNameTagsAndColors();
+            SetNameColors();
         }
 
         var FullScreen = GameObject.Find("FullScreen500(Clone)");
@@ -51,4 +54,57 @@ internal static class HudManagerPatch
     // {
     //     FastDestroyableSingleton<HudManager>.Instance.transform.FindChild("TaskDisplay").FindChild("TaskPanel").gameObject.SetActive(true);
     // }
+
+    internal static void ResetNameTagsAndColors() { }
+
+    internal static void SetPlayerNameColor(PlayerControl p, Color color)
+    {
+        p.cosmetics.nameText.color = color;
+        if (MeetingHud.Instance != null) foreach (PlayerVoteArea player in MeetingHud.Instance.playerStates)
+                if (player.NameText != null && p.PlayerId == player.TargetPlayerId) player.NameText.color = color;
+    }
+
+    internal static void SetNameColors()
+    {
+        var p = PlayerControl.LocalPlayer;
+
+        switch (p.GetRoleId())
+        {
+            case RoleType.Impostor:
+            case RoleType.CustomImpostor:
+            case RoleType.UnderTaker:
+            case RoleType.BountyHunter:
+            case RoleType.Teleporter:
+            case RoleType.EvilHacker:
+                SetPlayerNameColor(p, ImpostorRed);
+                break;
+
+            case RoleType.Sheriff: SetPlayerNameColor(p, SheriffYellow); break;
+            case RoleType.ProEngineer: SetPlayerNameColor(p, EngineerBlue); break;
+            case RoleType.Bakery: SetPlayerNameColor(p, BakeryYellow); break;
+            case RoleType.Snitch: SetPlayerNameColor(p, SnitchGreen); break;
+            case RoleType.Seer: SetPlayerNameColor(p, SeerGreen); break;
+            case RoleType.Lighter: SetPlayerNameColor(p, LighterYellow); break;
+            case RoleType.Altruist: SetPlayerNameColor(p, AltruistRed); break;
+            case RoleType.Mayor: SetPlayerNameColor(p, MayorGreen); break;
+            case RoleType.Crewmate: SetPlayerNameColor(p, CrewmateBlue); break;
+
+            case RoleType.Jester: SetPlayerNameColor(p, JesterPink); break;
+            case RoleType.Arsonist: SetPlayerNameColor(p, ArsonistOrange); break;
+
+            case RoleType.Madmate:
+                SetPlayerNameColor(p, ImpostorRed);
+                if (Madmate.KnowsImpostors(p))
+                    foreach (var pc in PlayerControl.AllPlayerControls)
+                        if (pc.IsImpostor()) SetPlayerNameColor(p, ImpostorRed);
+                break;
+
+            case RoleType.Jackal:
+            case RoleType.Sidekick:
+                SetPlayerNameColor(p, JackalBlue);
+                foreach (var jk in Jackal.AllPlayers) SetPlayerNameColor(jk, JackalBlue);
+                foreach (var sk in Sidekick.AllPlayers) SetPlayerNameColor(sk, JackalBlue);
+                break;
+        }
+    }
 }

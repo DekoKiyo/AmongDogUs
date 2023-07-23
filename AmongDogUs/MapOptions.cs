@@ -19,11 +19,9 @@ internal static class ModMapOptions
     internal static bool GhostsSeeTasks = true;
     internal static bool GhostsSeeVotes = true;
     internal static bool ShowRoleSummary = true;
-    // internal static bool HideNameplates = false;
     internal static bool AllowParallelMedBayScans = false;
     internal static bool EnableCustomSounds = true;
     internal static bool ShowLighterDarker = false;
-    // internal static bool EnableHorseMode = false;
 
     internal static int MeetingsCount = 0;
     internal static List<SurvCamera> CamerasToAdd = new();
@@ -56,12 +54,9 @@ internal static class ModMapOptions
         GhostsSeeRoles = Main.GhostsSeeRoles.Value;
         GhostsSeeTasks = Main.GhostsSeeTasks.Value;
         GhostsSeeVotes = Main.GhostsSeeVotes.Value;
-        // HideNameplates = Main.HideNameplates.Value;
         ShowRoleSummary = Main.ShowRoleSummary.Value;
         EnableCustomSounds = Main.EnableCustomSounds.Value;
         ShowLighterDarker = Main.ShowLighterDarker.Value;
-        // EnableHorseMode = Main.EnableHorseMode.Value;
-        // HorseModePatch.ShouldAlwaysHorseAround.isHorseMode = UltimateModsPlugin.EnableHorseMode.Value;
     }
 
     internal static void ResetDeviceTimes()

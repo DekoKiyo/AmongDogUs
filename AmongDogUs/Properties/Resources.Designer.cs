@@ -169,7 +169,8 @@ namespace AmongDogUs.Properties {
         }
         
         /// <summary>
-        ///   &lt;size=150%&gt;新しい{0}のアップデート{1}が利用可能&lt;/size&gt;\n{2} に類似しているローカライズされた文字列を検索します。
+        ///   &lt;size=150%&gt;新しい{0}のアップデート{1}が利用可能&lt;/size&gt;
+        ///{2} に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string AnnouncementUpdate {
             get {
@@ -529,7 +530,8 @@ namespace AmongDogUs.Properties {
         }
         
         /// <summary>
-        ///   Modが有効になっているため、&lt;br&gt;クイックチャットのみのプレイは不可能です。 に類似しているローカライズされた文字列を検索します。
+        ///   Modが有効になっているため、
+        ///クイックチャットのみのプレイは不可能です。 に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string ChatInfoDesc {
             get {
@@ -700,7 +702,8 @@ namespace AmongDogUs.Properties {
         }
         
         /// <summary>
-        ///   コマンドが無効です。\n使い方: /color {値} に類似しているローカライズされた文字列を検索します。
+        ///   コマンドが無効です。
+        ///使い方: /color {値} に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string CommandErrorColor {
             get {
@@ -709,7 +712,8 @@ namespace AmongDogUs.Properties {
         }
         
         /// <summary>
-        ///   コマンドが無効です。\n使い方: /size {範囲} に類似しているローカライズされた文字列を検索します。
+        ///   コマンドが無効です。
+        ///使い方: /size {範囲} に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string CommandErrorSize {
             get {
@@ -853,7 +857,8 @@ namespace AmongDogUs.Properties {
         }
         
         /// <summary>
-        ///   Modが有効になっているため、&lt;br&gt;公開ルームは利用できません。 に類似しているローカライズされた文字列を検索します。
+        ///   Modが有効になっているため、
+        ///公開ルームは利用できません。 に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string DisableOnlineText {
             get {
@@ -916,7 +921,7 @@ namespace AmongDogUs.Properties {
         }
         
         /// <summary>
-        ///   Submerged\nをダウンロード に類似しているローカライズされた文字列を検索します。
+        ///   Submergedをダウンロード に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string DownloadSubmerged {
             get {
@@ -1024,7 +1029,7 @@ namespace AmongDogUs.Properties {
         }
         
         /// <summary>
-        ///   &lt;color=#00a2ff&gt;ホストがAmongDogUsを導入していないかバージョンが違います。&lt;br/&gt;
+        ///   &lt;color=#00a2ff&gt;ホストがAmongDogUsを導入していないかバージョンが違います。
         ///バグ防止のため、あなたはあと{0}秒でキックされます。&lt;/color&gt; に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string ErrorHostNoVersion {
@@ -1862,7 +1867,9 @@ namespace AmongDogUs.Properties {
         }
         
         /// <summary>
-        ///   &lt;size=100%&gt;クルー {0} は&lt;br/&gt;&lt;color=red&gt;残り{1}回、全体では{2}回&lt;/color&gt;&lt;br/&gt;緊急会議を開始できる&lt;/size&gt; に類似しているローカライズされた文字列を検索します。
+        ///   &lt;size=100%&gt;クルー {0} は
+        ///&lt;color=red&gt;残り{1}回、全体では{2}回&lt;/color&gt;
+        ///緊急会議を開始できる&lt;/size&gt; に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string MeetingStatus {
             get {
@@ -2978,7 +2985,7 @@ namespace AmongDogUs.Properties {
         }
         
         /// <summary>
-        ///   ADUを\nアップデート に類似しているローカライズされた文字列を検索します。
+        ///   ADUをアップデート に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string UpdateADU {
             get {
@@ -2987,7 +2994,9 @@ namespace AmongDogUs.Properties {
         }
         
         /// <summary>
-        ///   {0}のアップデートは失敗しました\n後で再度行うか\n手動でアップデートしてください に類似しているローカライズされた文字列を検索します。
+        ///   {0}のアップデートは失敗しました
+        ///後で再度行うか
+        ///手動でアップデートしてください に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string UpdateFailed {
             get {
@@ -2996,7 +3005,7 @@ namespace AmongDogUs.Properties {
         }
         
         /// <summary>
-        ///   Submergedを\nアップデート に類似しているローカライズされた文字列を検索します。
+        ///   Submergedをアップデート に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string UpdateSubmerged {
             get {
@@ -3005,7 +3014,8 @@ namespace AmongDogUs.Properties {
         }
         
         /// <summary>
-        ///   {0}のアップデートは成功しました\nゲームを再起動してください に類似しているローカライズされた文字列を検索します。
+        ///   {0}のアップデートは成功しました
+        ///ゲームを再起動してください に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string UpdateSucceed {
             get {
@@ -3014,7 +3024,8 @@ namespace AmongDogUs.Properties {
         }
         
         /// <summary>
-        ///   {0}をアップデート中\nしばらくお待ち下さい に類似しているローカライズされた文字列を検索します。
+        ///   {0}をアップデート中
+        ///しばらくお待ち下さい に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string UpdatingProcessText {
             get {

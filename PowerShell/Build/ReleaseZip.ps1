@@ -1,7 +1,7 @@
 Start-Sleep -Milliseconds 250
 
 $Release = ".\Release"
-$DLLPath = ".\AmongDogUs\bin\Debug\net7.0"
+$DLLPath = ".\AmongDogUs\bin\Debug\net6.0"
 $AmongUs = $env:AmongUsDogRun # Environment Variables (GrandTheftAutoV)
 
 New-Item $Release -ItemType Directory -ErrorAction SilentlyContinue

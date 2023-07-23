@@ -1,5 +1,5 @@
 Start-Sleep -Milliseconds 250
-$Directory = ".\AmongDogUs\bin\Debug\net7.0"
+$Directory = ".\AmongDogUs\bin\Debug\net6.0"
 $AmongUs = $env:AmongUsDogRun # Environment Variables (GrandTheftAutoV)
 
 # DekoKiyoTools.dll

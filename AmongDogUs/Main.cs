@@ -85,14 +85,10 @@ internal class Main : BasePlugin
     internal static ConfigEntry<bool> GhostsSeeTasks { get; set; }
     internal static ConfigEntry<bool> GhostsSeeRoles { get; set; }
     internal static ConfigEntry<bool> GhostsSeeVotes { get; set; }
-    // internal static ConfigEntry<bool> HideNameplates { get; set; }
     internal static ConfigEntry<bool> ShowRoleSummary { get; set; }
     internal static ConfigEntry<bool> EnableCustomSounds { get; set; }
     internal static ConfigEntry<bool> ShowLighterDarker { get; set; }
-    internal static ConfigEntry<bool> EnableHorseMode { get; set; }
     internal static ConfigEntry<string> RoomCodeText { get; set; }
-    internal static ConfigEntry<string> ShowPopUpVersion { get; set; }
-    internal static ConfigEntry<int> LanguageNum { get; set; }
 
     internal static ConfigEntry<bool> TopLeftVert { get; set; }
     internal static ConfigEntry<bool> TopLeftHort { get; set; }
@@ -119,14 +115,9 @@ internal class Main : BasePlugin
         GhostsSeeRoles = Config.Bind("Custom", "Ghosts See Roles", true);
         GhostsSeeVotes = Config.Bind("Custom", "Ghosts See Votes", true);
         ShowRoleSummary = Config.Bind("Custom", "ShowRoleSummary", false);
-        // HideNameplates = Config.Bind("Custom", "Hide Nameplates", false);
         EnableCustomSounds = Config.Bind("Custom", "Enable Custom Sounds", true);
-        LanguageNum = Config.Bind("Custom", "Language Number", 0);
         ShowLighterDarker = Config.Bind("Custom", "Show Lighter / Darker", false);
-        EnableHorseMode = Config.Bind("Custom", "Enable Horse Mode", false);
-        RoomCodeText = Config.Bind("Custom", "Streamer Mode Room Code Text", "Ultimate Mods");
-        ShowPopUpVersion = Config.Bind("Custom", "Show PopUp", "0");
-        // DebugRepo = Config.Bind("Custom", "Debug Hat Repo", "");
+        RoomCodeText = Config.Bind("Custom", "Streamer Mode Room Code Text", "Among Dog Us");
 
         TopLeftVert = Config.Bind("MapOption", "4ElecDoorTopLeftVert", true);
         TopLeftHort = Config.Bind("MapOption", "4ElecDoorTopLeftHort", true);
@@ -144,8 +135,6 @@ internal class Main : BasePlugin
         AirShipDoorMode = Config.Bind("MapOption", "4ElecDoorMode", 0);
         AirShipDoorChangeTiming = Config.Bind("MapOption", "4ElecDoorChangeTiming", 0);
 
-        Harmony.PatchAll();
-
         // Write here to need
         OnlineMenu.Initialize();
         RoleInfoList.Load();
@@ -155,6 +144,8 @@ internal class Main : BasePlugin
         SubmergedCompatibility.Initialize();
         AddComponent<ModUpdateBehaviour>();
         ClassInjector.RegisterTypeInIl2Cpp(typeof(AirShipOption));
+
+        Harmony.PatchAll();
 
         Logger.Log(LogLevel.Info, "Initialized!");
     }
