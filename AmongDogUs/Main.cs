@@ -64,7 +64,7 @@ namespace AmongDogUs;
 [ReactorModFlags(Reactor.Networking.ModFlags.RequireOnAllClients)]
 internal class Main : BasePlugin
 {
-    internal const string PLUGIN_GUID = "con.DekoKiyo.AmongDogUs";
+    internal const string PLUGIN_GUID = "jp.DekoKiyo.AmongDogUs";
     internal const string PLUGIN_NAME = "AmongDogUs";
     internal const string PLUGIN_VERSION = "1.0.0.0";
     internal static readonly Version Version = Assembly.GetExecutingAssembly().GetName().Version;
