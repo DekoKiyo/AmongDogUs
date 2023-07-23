@@ -6,26 +6,22 @@ internal static class VanillaOptionsPatch
     private static GameObject popUp;
     private static TextMeshPro titleText;
 
-    private static ToggleButtonBehaviour moreOptions;
-    private static List<ToggleButtonBehaviour> modButtons;
-    private static TextMeshPro titleTextTitle;
-
     internal static ToggleButtonBehaviour buttonPrefab;
 
     [HarmonyPostfix]
     [HarmonyPatch(typeof(MainMenuManager), nameof(MainMenuManager.Start))]
     internal static void MainMenuManager_StartPostfix(MainMenuManager __instance)
     {
-        var tmp = __instance.announcementPopUp.Title;
+        var go = new GameObject("TitleTextADU");
+        var tmp = go.AddComponent<TextMeshPro>();
+        tmp.fontSize = 4;
         tmp.alignment = TextAlignmentOptions.Center;
         tmp.transform.localPosition += Vector3.left * 0.2f;
         titleText = Object.Instantiate(tmp);
-        Object.Destroy(titleText.GetComponent<TextTranslatorTMP>());
         titleText.gameObject.SetActive(false);
         Object.DontDestroyOnLoad(titleText);
     }
 
-    internal static float xOffset = 1.75f;
     [HarmonyPatch(typeof(OptionsMenuBehaviour), nameof(OptionsMenuBehaviour.Update))]
     class OptionsUpdate
     {
@@ -72,15 +68,14 @@ internal static class VanillaOptionsPatch
         Object.Destroy(popUp.GetComponent<OptionsMenuBehaviour>());
         foreach (var gObj in popUp.gameObject.GetAllChilds())
         {
-            if (gObj.name != "Background" && gObj.name != "CloseButton")
-                Object.Destroy(gObj);
+            if (gObj.name != "Background" && gObj.name != "CloseButton") Object.Destroy(gObj);
         }
         popUp.SetActive(false);
     }
 
     private static void InitializeMoreButton(OptionsMenuBehaviour __instance)
     {
-        moreOptions = Object.Instantiate(buttonPrefab, __instance.CensorChatButton.transform.parent);
+        var moreOptions = Object.Instantiate(buttonPrefab, __instance.CensorChatButton.transform.parent);
         moreOptions.transform.localPosition = __instance.CensorChatButton.transform.localPosition;
 
         moreOptions.gameObject.SetActive(true);
@@ -116,7 +111,7 @@ internal static class VanillaOptionsPatch
     {
         if (!popUp || popUp.GetComponentInChildren<TextMeshPro>() || !titleText) return;
 
-        var title = titleTextTitle = Object.Instantiate(titleText, popUp.transform);
+        var title = Object.Instantiate(titleText, popUp.transform);
         title.GetComponent<RectTransform>().localPosition = Vector3.up * 2.3f;
         title.gameObject.SetActive(true);
         title.text = ModResources.GameOptionsText;
@@ -127,7 +122,6 @@ internal static class VanillaOptionsPatch
     {
         if (popUp.transform.GetComponentInChildren<ToggleButtonBehaviour>()) return;
 
-        modButtons = new List<ToggleButtonBehaviour>();
         for (var i = 0; i < 4; i++)
         {
             ToggleButtonBehaviour MainButton = null;
@@ -191,7 +185,6 @@ internal static class VanillaOptionsPatch
             passiveButton.OnMouseOut.AddListener((Action)(() => button.Background.color = button.onState ? Color.green : Palette.ImpostorRed));
 
             foreach (var spr in button.gameObject.GetComponentsInChildren<SpriteRenderer>()) spr.size = new Vector2(2.2f, .7f);
-            modButtons.Add(button);
         }
     }
 
@@ -201,20 +194,5 @@ internal static class VanillaOptionsPatch
         {
             yield return Go.transform.GetChild(i).gameObject;
         }
-    }
-
-    internal static void UpdateTranslations()
-    {
-        if (titleTextTitle) titleTextTitle.text = ModResources.GameOptionsText;
-        if (moreOptions) moreOptions.Text.text = ModResources.GameOptionsText;
-
-        try
-        {
-            modButtons[0].Text.text = FastDestroyableSingleton<TranslationController>.Instance.GetString(StringNames.SettingsCensorChat);
-            modButtons[1].Text.text = FastDestroyableSingleton<TranslationController>.Instance.GetString(StringNames.SettingsEnableFriendInvites);
-            modButtons[2].Text.text = FastDestroyableSingleton<TranslationController>.Instance.GetString(StringNames.SettingsStreamerMode);
-            modButtons[3].Text.text = FastDestroyableSingleton<TranslationController>.Instance.GetString(StringNames.SettingsColorblind);
-        }
-        catch { }
     }
 }

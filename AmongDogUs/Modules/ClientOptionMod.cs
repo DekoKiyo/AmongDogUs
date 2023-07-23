@@ -13,21 +13,18 @@ internal static class ClientOptionsPatch
     private static GameObject popUp;
     private static TextMeshPro titleText;
 
-    private static ToggleButtonBehaviour moreOptions;
-    private static List<ToggleButtonBehaviour> modButtons;
-    private static TextMeshPro titleTextTitle;
-
-    internal static ToggleButtonBehaviour buttonPrefab;
+    private static ToggleButtonBehaviour buttonPrefab;
 
     [HarmonyPostfix]
     [HarmonyPatch(typeof(MainMenuManager), nameof(MainMenuManager.Start))]
     internal static void MainMenuManager_StartPostfix(MainMenuManager __instance)
     {
-        var tmp = __instance.announcementPopUp.Title;
+        var go = new GameObject("TitleTextVan");
+        var tmp = go.AddComponent<TextMeshPro>();
+        tmp.fontSize = 4;
         tmp.alignment = TextAlignmentOptions.Center;
         tmp.transform.localPosition += Vector3.left * 0.2f;
         titleText = Object.Instantiate(tmp);
-        Object.Destroy(titleText.GetComponent<TextTranslatorTMP>());
         titleText.gameObject.SetActive(false);
         Object.DontDestroyOnLoad(titleText);
     }
@@ -71,7 +68,7 @@ internal static class ClientOptionsPatch
 
     private static void InitializeMoreButton(OptionsMenuBehaviour __instance)
     {
-        moreOptions = Object.Instantiate(buttonPrefab, __instance.CensorChatButton.transform.parent);
+        var moreOptions = Object.Instantiate(buttonPrefab, __instance.CensorChatButton.transform.parent);
         moreOptions.transform.localPosition = __instance.CensorChatButton.transform.localPosition + Vector3.right * 2.6f;
 
         moreOptions.gameObject.SetActive(true);
@@ -91,7 +88,6 @@ internal static class ClientOptionsPatch
                 popUp.transform.SetParent(null);
                 Object.DontDestroyOnLoad(popUp);
             }
-
             CheckSetTitle();
             RefreshOpen();
         }));
@@ -108,7 +104,7 @@ internal static class ClientOptionsPatch
     {
         if (!popUp || popUp.GetComponentInChildren<TextMeshPro>() || !titleText) return;
 
-        var title = titleTextTitle = Object.Instantiate(titleText, popUp.transform);
+        var title = Object.Instantiate(titleText, popUp.transform);
         title.GetComponent<RectTransform>().localPosition = Vector3.up * 2.3f;
         title.gameObject.SetActive(true);
         title.text = ModResources.ModOptionsText;
@@ -118,8 +114,6 @@ internal static class ClientOptionsPatch
     private static void SetUpOptions()
     {
         if (popUp.transform.GetComponentInChildren<ToggleButtonBehaviour>()) return;
-
-        modButtons = new List<ToggleButtonBehaviour>();
 
         for (var i = 0; i < AllOptions.Length; i++)
         {
@@ -134,8 +128,8 @@ internal static class ClientOptionsPatch
             button.onState = info.DefaultValue;
             button.Background.color = button.onState ? Color.green : Palette.ImpostorRed;
 
-            button.Text.text = AllOptions[i].Title;
-            button.Text.fontSizeMin = button.Text.fontSizeMax = 2.2f;
+            button.Text.text = info.Title;
+            button.Text.fontSizeMin = button.Text.fontSizeMax = 2f;
             button.Text.font = Object.Instantiate(titleText.font);
             button.Text.GetComponent<RectTransform>().sizeDelta = new Vector2(2, 2);
 
@@ -161,32 +155,15 @@ internal static class ClientOptionsPatch
             passiveButton.OnMouseOut.AddListener((Action)(() => button.Background.color = button.onState ? Color.green : Palette.ImpostorRed));
 
             foreach (var spr in button.gameObject.GetComponentsInChildren<SpriteRenderer>()) spr.size = new Vector2(2.2f, .7f);
-
-            modButtons.Add(button);
         }
     }
+
     private static IEnumerable<GameObject> GetAllChilds(this GameObject Go)
     {
         for (var i = 0; i < Go.transform.childCount; i++)
         {
             yield return Go.transform.GetChild(i).gameObject;
         }
-    }
-
-    internal static void UpdateTranslations()
-    {
-        if (titleTextTitle) titleTextTitle.text = ModResources.ModOptionsText;
-        if (moreOptions) moreOptions.Text.text = ModResources.ModOptionsText;
-
-        try
-        {
-            for (int i = 0; i < AllOptions.Length; i++)
-            {
-                if (i >= modButtons.Count) break;
-                modButtons[i].Text.text = AmongDogUs.GetString(AllOptions[i].Title);
-            }
-        }
-        catch { }
     }
 
     internal class SelectionBehaviour
