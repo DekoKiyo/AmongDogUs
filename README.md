@@ -17,7 +17,7 @@ Portions of the materials contained herein are property of Innersloth LLC. © In
 ### 使用ライブラリ
 - [BepInEx](https://github.com/BepInEx/BepInEx) & Harmony<br/>
 ゲームアセンブリのパッチに使用しています。
-- [Reactor]()<br/>
+- [Reactor](https://github.com/NuclearPowered/Reactor)<br/>
 アセットバンドルの読み込みに使用しています。<br/>
 サブマが使ってるから使ってます。正直あんま使いたくない。
 - [Essentials](https://github.com/DorCoMaNdO/Reactor-Essentials)<br/>
