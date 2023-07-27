@@ -88,6 +88,24 @@ namespace AmongDogUs.Properties {
         }
         
         /// <summary>
+        ///   初期ドアサボタージュクールダウン に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string AirShipInitialDoorCooldown {
+            get {
+                return ResourceManager.GetString("AirShipInitialDoorCooldown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   初期サボタージュクールダウン に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string AirShipInitialSabotageCooldown {
+            get {
+                return ResourceManager.GetString("AirShipInitialSabotageCooldown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   AirShipの設定 に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string AirShipOptionsTitle {
@@ -106,11 +124,38 @@ namespace AmongDogUs.Properties {
         }
         
         /// <summary>
+        ///   初期スポーン時にオリジナルクールダウンをセット に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string AirShipSetOriginalCooldown {
+            get {
+                return ResourceManager.GetString("AirShipSetOriginalCooldown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   AirShipをカスタマイズ に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string AirShipSettings {
             get {
                 return ResourceManager.GetString("AirShipSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   同期スポーン に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string AirShipSynchronizedSpawning {
+            get {
+                return ResourceManager.GetString("AirShipSynchronizedSpawning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   他のプレイヤーを待機中 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string AirShipWaitingOtherPlayer {
+            get {
+                return ResourceManager.GetString("AirShipWaitingOtherPlayer", resourceCulture);
             }
         }
         
@@ -835,6 +880,15 @@ namespace AmongDogUs.Properties {
         internal static string CustomImpostorShort {
             get {
                 return ResourceManager.GetString("CustomImpostorShort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   会議前遅延時間 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string DelayBeforeMeeting {
+            get {
+                return ResourceManager.GetString("DelayBeforeMeeting", resourceCulture);
             }
         }
         
@@ -1874,6 +1928,16 @@ namespace AmongDogUs.Properties {
         internal static string MeetingStatus {
             get {
                 return ResourceManager.GetString("MeetingStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   &lt;color=#FFFFFFFF&gt;他のプレイヤーを待機中
+        ///&lt;size=50%&gt;残り時間:{0}&lt;/size&gt;&lt;/color&gt; に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string MeetingWaitingOtherPlayer {
+            get {
+                return ResourceManager.GetString("MeetingWaitingOtherPlayer", resourceCulture);
             }
         }
         

@@ -26,6 +26,7 @@ internal static class CustomOptionsHolder
     internal static CustomOption HideOutOfSightNameTags;
     internal static CustomOption HidePlayerNames;
     internal static CustomOption RefundVotesOnDeath;
+    internal static CustomOption DelayBeforeMeeting;
     internal static CustomOption EnableMirrorMap;
     internal static CustomOption CanZoomInOutWhenPlayerIsDead;
     internal static CustomOption FillCrewmate;
@@ -49,6 +50,10 @@ internal static class CustomOptionsHolder
     internal static CustomOption AirshipReactorDuration;
     internal static CustomOption EnableRecordsAdmin;
     internal static CustomOption EnableCockpitAdmin;
+    internal static CustomOption AirshipSynchronizedSpawning;
+    internal static CustomOption AirshipSetOriginalCooldown;
+    internal static CustomOption AirshipInitialDoorCooldown;
+    internal static CustomOption AirshipInitialSabotageCooldown;
 
     /* 以下Mod役職の設定 */
 
@@ -210,6 +215,7 @@ internal static class CustomOptionsHolder
         HideOutOfSightNameTags = CustomOption.Create(24, CustomOptionType.General, Color.white, ModResources.HideOutName, true, "", SpecialOptions);
         HidePlayerNames = CustomOption.Create(25, CustomOptionType.General, Color.white, ModResources.HidePlayerName, false, "", SpecialOptions);
         RefundVotesOnDeath = CustomOption.Create(26, CustomOptionType.General, Color.white, ModResources.RefundVoteDeath, true, "", SpecialOptions);
+        DelayBeforeMeeting = CustomOption.Create(27, CustomOptionType.General, Color.white, ModResources.DelayBeforeMeeting, 0f, 0f, 10f, 0.25f, ModResources.FormatSeconds, SpecialOptions);
         // EnableGodMiraHQ =CustomOption.Create(27, General, "EnableGodMira", false, SpecialOptions);
         RandomMap = CustomOption.Create(34, CustomOptionType.General, Color.white, ModResources.PlayRandomMaps, false, "", SpecialOptions);
         RandomMapEnableSkeld = CustomOption.Create(50, CustomOptionType.General, Color.white, ModResources.RandomMapsEnableSkeld, true, "", RandomMap, false);
@@ -227,6 +233,10 @@ internal static class CustomOptionsHolder
         EnableRecordsAdmin = CustomOption.Create(82, CustomOptionType.Other, Color.white, ModResources.EnableRecordsAdmin, false, "", AirShipSettings);
         EnableCockpitAdmin = CustomOption.Create(83, CustomOptionType.Other, Color.white, ModResources.EnableCockpitAdmin, false, "", AirShipSettings);
         AirshipReactorDuration = CustomOption.Create(84, CustomOptionType.Other, Color.white, ModResources.AirShipReactorDuration, 90f, 10f, 600f, 5f, ModResources.FormatSeconds, AirShipSettings);
+        AirshipSynchronizedSpawning = CustomOption.Create(85, CustomOptionType.Other, Color.white, ModResources.AirShipSynchronizedSpawning, false, "", AirShipSettings);
+        AirshipSetOriginalCooldown = CustomOption.Create(86, CustomOptionType.Other, Color.white, ModResources.AirShipSetOriginalCooldown, false, "", AirShipSettings);
+        AirshipInitialDoorCooldown = CustomOption.Create(87, CustomOptionType.Other, Color.white, ModResources.AirShipInitialDoorCooldown, 0f, 0f, 60f, 1f, ModResources.FormatSeconds, AirShipSettings);
+        AirshipInitialSabotageCooldown = CustomOption.Create(88, CustomOptionType.Other, Color.white, ModResources.AirShipInitialSabotageCooldown, 15f, 0f, 60f, 1f, ModResources.FormatSeconds, AirShipSettings);
 
         /* 以下Mod役職の設定 */
         JesterRate = new(100, CustomOptionType.Neutral, Color.white, ModResources.Jester, JesterPink, 1);
@@ -1113,36 +1123,37 @@ internal static class GameOptionsDataPatch
             OptionToString(CustomOptionsHolder.ActivateModRoles),
             OptionToString(CustomOptionsHolder.EnableMirrorMap),
             OptionToString(CustomOptionsHolder.CanZoomInOutWhenPlayerIsDead),
-            OptionToString(CustomOptionsHolder.FillCrewmate),
         };
 
         var optionName = CustomOptionsHolder.ColorString(new Color(204f / 255f, 204f / 255f, 0, 1f), ModResources.CrewmateRoleCount);
         var min = CustomOptionsHolder.CrewmateRolesCountMin.GetSelection();
         var max = CustomOptionsHolder.CrewmateRolesCountMax.GetSelection();
         if (min > max) min = max;
-        var optionValue = (min == max) ? $"{max}" : $"{min} - {max}";
-        entry.AppendLine($"{optionName}: {optionValue}");
+        var optionValue = (min == max) ? $"{max}" : $"{min} ~ {max}";
+        entries.Add(string.Format(ModResources.FormatPlayer, $"{optionName}: {optionValue}"));
 
         optionName = CustomOptionsHolder.ColorString(new Color(204f / 255f, 204f / 255f, 0, 1f), ModResources.NeutralRoleCount);
         min = CustomOptionsHolder.NeutralRolesCountMin.GetSelection();
         max = CustomOptionsHolder.NeutralRolesCountMax.GetSelection();
         if (min > max) min = max;
-        optionValue = (min == max) ? $"{max}" : $"{min} - {max}";
-        entry.AppendLine($"{optionName}: {optionValue}");
+        optionValue = (min == max) ? $"{max}" : $"{min} ~ {max}";
+        entries.Add(string.Format(ModResources.FormatPlayer, $"{optionName}: {optionValue}"));
 
         optionName = CustomOptionsHolder.ColorString(new Color(204f / 255f, 204f / 255f, 0, 1f), ModResources.ImpostorRoleCount);
         min = CustomOptionsHolder.ImpostorRolesCountMin.GetSelection();
         max = CustomOptionsHolder.ImpostorRolesCountMax.GetSelection();
         if (min > max) min = max;
-        optionValue = (min == max) ? $"{max}" : $"{min} - {max}";
-        entry.AppendLine($"{optionName}: {optionValue}");
+        optionValue = (min == max) ? $"{max}" : $"{min} ~ {max}";
+        entries.Add(string.Format(ModResources.FormatPlayer, $"{optionName}: {optionValue}"));
 
         optionName = CustomOptionsHolder.ColorString(new Color(204f / 255f, 204f / 255f, 0, 1f), ModResources.ModifierCount);
         min = CustomOptionsHolder.ImpostorRolesCountMin.GetSelection();
         max = CustomOptionsHolder.ImpostorRolesCountMax.GetSelection();
         if (min > max) min = max;
-        optionValue = (min == max) ? $"{max}" : $"{min} - {max}";
-        entry.AppendLine($"{optionName}: {optionValue}");
+        optionValue = (min == max) ? $"{max}" : $"{min} ~ {max}";
+        entries.Add(string.Format(ModResources.FormatPlayer, $"{optionName}: {optionValue}"));
+
+        entries.Add(OptionToString(CustomOptionsHolder.FillCrewmate));
 
         static void AddChildren(CustomOption option, ref StringBuilder entry, bool indent = true)
         {
@@ -1195,7 +1206,7 @@ internal static class GameOptionsDataPatch
                 page = "";
                 lineCount = 0;
             }
-            page = page + e + "\n\n";
+            page = page + e + "\n";
             lineCount += lines + 1;
         }
 

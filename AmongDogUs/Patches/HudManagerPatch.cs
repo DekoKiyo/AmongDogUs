@@ -35,17 +35,17 @@ internal static class HudManagerPatch
             SetNameColors();
         }
 
-        var FullScreen = GameObject.Find("FullScreen500(Clone)");
-        if (FullScreen)
+        var GameLoadAnimation = GameObject.Find("FullScreen500(Clone)/GameLoadAnimation");
+        if (GameLoadAnimation is not null && GameLoadAnimation.active)
         {
-            FullScreen.SetActive(false);
-            Main.Logger.LogWarning("[WARNING] Crew Loading Animation was disabled with mod!");
+            GameLoadAnimation.SetActive(false);
+            Main.Logger.LogWarning("[WARNING] The Crew that Loading Animation was disabled with mod!");
         }
-        var FullScreenC = GameObject.Find("FullScreen500(Clone)(Clone)");
-        if (FullScreenC)
+        var GameLoadAnimation2 = GameObject.Find("FullScreen500(Clone)(Clone)/GameLoadAnimation");
+        if (GameLoadAnimation2 is not null && GameLoadAnimation2.active)
         {
-            FullScreenC.SetActive(false);
-            Main.Logger.LogWarning("[WARNING] Crew Loading Animation was disabled with mod!");
+            GameLoadAnimation2.SetActive(false);
+            Main.Logger.LogWarning("[WARNING] The Crew that Loading Animation was disabled with mod!");
         }
     }
 
@@ -106,5 +106,11 @@ internal static class HudManagerPatch
                 foreach (var sk in Sidekick.AllPlayers) SetPlayerNameColor(sk, JackalBlue);
                 break;
         }
+    }
+
+    [HarmonyPatch(nameof(HudManager.OpenMeetingRoom)), HarmonyPrefix]
+    internal static void OpenMeetingRoom(HudManager __instance)
+    {
+        SyncMeeting.StartMeeting();
     }
 }

@@ -480,4 +480,15 @@ internal static class Helpers
             return "";
         }
     }
+
+    internal static void Shuffle<T>(this IList<T> self, int startAt = 0)
+    {
+        for (int i = startAt; i < self.Count - 1; i++)
+        {
+            T value = self[i];
+            int index = UnityEngine.Random.Range(i, self.Count);
+            self[i] = self[index];
+            self[index] = value;
+        }
+    }
 }

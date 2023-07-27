@@ -30,25 +30,19 @@ internal class GameStartManagerPatch
     internal static void UpdatePrefix(GameStartManager __instance)
     {
         // Lobby code
-        if (DataManager.Settings.Gameplay.StreamerMode)
-        {
-            __instance.GameRoomNameCode.color = new(89, 162, 243);
-            __instance.GameRoomNameCode.text = Main.RoomCodeText.Value;
-        }
-        else
-        {
-            __instance.GameRoomNameCode.text = GameCode.IntToGameName(AmongUsClient.Instance.GameId);
-        }
+        if (DataManager.Settings.Gameplay.StreamerMode) __instance.GameRoomNameCode.text = Main.RoomCodeText.Value;
+        else __instance.GameRoomNameCode.text = GameCode.IntToGameName(AmongUsClient.Instance.GameId);
 
         if (!AmongUsClient.Instance.AmHost || !GameData.Instance) return; // Not host or no instance
         update = GameData.Instance.PlayerCount != __instance.LastPlayerCount;
 
-        // カウントダウンキャンセル
-        if (Input.GetKeyDown(KeyCode.LeftShift) && GameStartManager.Instance.startState == GameStartManager.StartingStates.Countdown)
-            GameStartManager.Instance.ResetStartState();
-        // 即スタート
-        if (Input.GetKeyDown(KeyCode.KeypadEnter) && GameStartManager.Instance.startState == GameStartManager.StartingStates.Countdown)
-            GameStartManager.Instance.countDownTimer = 0;
+        if (GameStartManager.Instance.startState is GameStartManager.StartingStates.Countdown)
+        {
+            // カウントダウンキャンセル
+            if (Input.GetKeyDown(KeyCode.LeftShift)) GameStartManager.Instance.ResetStartState();
+            // 即スタート
+            if (Input.GetKeyDown(KeyCode.KeypadEnter)) GameStartManager.Instance.countDownTimer = 0;
+        }
     }
 
     [HarmonyPatch(nameof(GameStartManager.Update)), HarmonyPostfix]
@@ -150,15 +144,9 @@ internal class GameStartManagerPatch
 
         switch (minutes)
         {
-            case <= 02:
-                ColorCode = "d20000";
-                break;
-            case <= 05:
-                ColorCode = "ffff00";
-                break;
-            case <= 10:
-                ColorCode = "00e300";
-                break;
+            case <= 02: ColorCode = "d20000"; break;
+            case <= 05: ColorCode = "ffff00"; break;
+            case <= 10: ColorCode = "00e300"; break;
         }
         string suffix = $" <color=#{ColorCode}>\n({minutes:00}:{seconds:00})</color>";
 

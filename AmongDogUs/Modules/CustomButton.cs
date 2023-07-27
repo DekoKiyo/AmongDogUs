@@ -31,6 +31,8 @@ internal class CustomButton
     private readonly bool mirror;
     private readonly KeyCode? hotkey;
 
+    internal static bool StopCountdown = true;
+
     internal CustomButton(Action OnClick, Func<bool> HasButton, Func<bool> CouldUse, Action OnMeetingEnds, Sprite Sprite, ButtonPositions ButtonPosition, HudManager hudManager, ActionButton textTemplate, KeyCode? hotkey, bool HasEffect, float EffectDuration, Action OnEffectEnds, bool mirror = false, string ButtonText = null)
     {
         this.hudManager = hudManager;
@@ -210,7 +212,7 @@ internal class CustomButton
             actionButton.graphic.material.SetFloat("_Desat", 1f);
         }
 
-        if (Timer >= 0)
+        if (Timer >= 0 && !StopCountdown)
         {
             if (HasEffect && IsEffectActive) Timer -= Time.deltaTime;
             else if (!PlayerControl.LocalPlayer.inVent && PlayerControl.LocalPlayer.moveable) Timer -= Time.deltaTime;

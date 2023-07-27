@@ -50,6 +50,7 @@ internal enum ECustomRPC : byte
     AltruistRevive,
     UncheckedCmdReportDeadBody,
     EngineerFixSubmergedOxygen,
+    Synchronize,
 }
 
 internal static class RPCProcedure
@@ -195,6 +196,9 @@ internal static class RPCProcedure
                 case (byte)ECustomRPC.EngineerFixSubmergedOxygen:
                     EngineerFixSubmergedOxygen();
                     break;
+                case (byte)ECustomRPC.Synchronize:
+                    Synchronize(reader.ReadByte(), reader.ReadInt32());
+                    break;
             }
         }
     }
@@ -209,6 +213,7 @@ internal static class RPCProcedure
         VitalsPatch.ResetData();
         RoleData.SetCustomButtonCooldowns();
         CustomOverlays.ResetOverlays();
+        SpawnInMinigamePatch.Reset();
         MapBehaviorPatch.ResetIcons();
     }
 
@@ -531,5 +536,19 @@ internal static class RPCProcedure
     internal static void EngineerFixSubmergedOxygen()
     {
         SubmergedCompatibility.RepairOxygen();
+    }
+
+    internal static void Synchronize(byte playerId, int tag)
+    {
+        switch ((SynchronizeTag)tag)
+        {
+            case SynchronizeTag.PreSpawnMinigame:
+                SpawnInMinigamePatch.synchronizeData.SynchronizeRPC(SynchronizeTag.PreSpawnMinigame, playerId);
+                break;
+            case SynchronizeTag.SyncMeetingStart:
+                SyncMeeting.synchronizeData.SynchronizeRPC(SynchronizeTag.SyncMeetingStart, playerId);
+                break;
+            default: break;
+        }
     }
 }

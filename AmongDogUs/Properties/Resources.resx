@@ -126,14 +126,29 @@
   <data name="AirShipElecDoorOption" xml:space="preserve">
     <value>AirShip電気室ドア設定</value>
   </data>
+  <data name="AirShipInitialDoorCooldown" xml:space="preserve">
+    <value>初期ドアサボタージュクールダウン</value>
+  </data>
+  <data name="AirShipInitialSabotageCooldown" xml:space="preserve">
+    <value>初期サボタージュクールダウン</value>
+  </data>
   <data name="AirShipOptionsTitle" xml:space="preserve">
     <value>AirShipの設定</value>
   </data>
   <data name="AirShipReactorDuration" xml:space="preserve">
     <value>AirShip昇降機制限時間</value>
   </data>
+  <data name="AirShipSetOriginalCooldown" xml:space="preserve">
+    <value>初期スポーン時にオリジナルクールダウンをセット</value>
+  </data>
   <data name="AirShipSettings" xml:space="preserve">
     <value>AirShipをカスタマイズ</value>
+  </data>
+  <data name="AirShipSynchronizedSpawning" xml:space="preserve">
+    <value>同期スポーン</value>
+  </data>
+  <data name="AirShipWaitingOtherPlayer" xml:space="preserve">
+    <value>他のプレイヤーを待機中</value>
   </data>
   <data name="Altruist" xml:space="preserve">
     <value>アルトルイスト</value>
@@ -378,6 +393,9 @@
   </data>
   <data name="CustomImpostorShort" xml:space="preserve">
     <value>改造されてしまった！</value>
+  </data>
+  <data name="DelayBeforeMeeting" xml:space="preserve">
+    <value>会議前遅延時間</value>
   </data>
   <data name="DisableAdmin" xml:space="preserve">
     <value>アドミンの制限時間</value>
@@ -727,6 +745,10 @@
     <value>&lt;size=100%&gt;クルー {0} は
 &lt;color=red&gt;残り{1}回、全体では{2}回&lt;/color&gt;
 緊急会議を開始できる&lt;/size&gt;</value>
+  </data>
+  <data name="MeetingWaitingOtherPlayer" xml:space="preserve">
+    <value>&lt;color=#FFFFFFFF&gt;他のプレイヤーを待機中
+&lt;size=50%&gt;残り時間:{0}&lt;/size&gt;&lt;/color&gt;</value>
   </data>
   <data name="MirrorMap" xml:space="preserve">
     <value>反転マップ</value>

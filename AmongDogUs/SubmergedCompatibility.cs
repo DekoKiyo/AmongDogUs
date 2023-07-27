@@ -1,4 +1,11 @@
 // Source Code from TheOtherRoles (https://github.com/TheOtherRolesAU/TheOtherRoles)
+// Edited by DekoKiyo
+
+using Submerged.Map;
+using Submerged.Floors;
+using Submerged.Vents;
+using Submerged.Systems.Oxygen;
+using Submerged.Enums;
 
 namespace AmongDogUs;
 
@@ -14,52 +21,26 @@ internal static class SubmergedCompatibility
     internal static Assembly Assembly { get; private set; }
     internal static Type[] Types { get; private set; }
     internal static Dictionary<string, Type> InjectedTypes { get; private set; }
+    internal static TaskTypes RetrieveOxygenMask;
 
-    internal static MonoBehaviour SubmarineStatus { get; private set; }
+    internal static SubmarineStatus SubmarineStatusBehaviour { get; private set; }
 
     internal static bool IsSubmerged { get; private set; }
-
-    internal static bool DisableO2MaskCheckForEmergency
-    {
-        set
-        {
-            if (!Loaded) return;
-            DisableO2MaskCheckField.SetValue(null, value);
-        }
-    }
 
     internal static void SetupMap(ShipStatus map)
     {
         if (map == null)
         {
             IsSubmerged = false;
-            SubmarineStatus = null;
+            SubmarineStatusBehaviour = null;
             return;
         }
 
         IsSubmerged = map.Type == SUBMERGED_MAP_TYPE;
         if (!IsSubmerged) return;
 
-        SubmarineStatus = map.GetComponent(Il2CppType.From(SubmarineStatusType))?.TryCast(SubmarineStatusType) as MonoBehaviour;
+        SubmarineStatusBehaviour = map.GetComponent(Il2CppType.From(typeof(SubmarineStatus)))?.TryCast<SubmarineStatus>();
     }
-
-    private static Type SubmarineStatusType;
-    private static MethodInfo CalculateLightRadiusMethod;
-
-    private static Type TaskIsEmergencyPatchType;
-    private static FieldInfo DisableO2MaskCheckField;
-
-    private static MethodInfo RpcRequestChangeFloorMethod;
-    private static Type FloorHandlerType;
-    private static MethodInfo GetFloorHandlerMethod;
-
-    private static Type VentMoveToVentPatchType;
-    private static FieldInfo InTransitionField;
-
-    internal static TaskTypes RetrieveOxygenMask = (TaskTypes)152;
-    private static Type SubmarineOxygenSystemType;
-    private static MethodInfo SubmarineOxygenSystemInstanceField;
-    private static MethodInfo RepairDamageMethod;
 
     internal static bool TryLoadSubmerged()
     {
@@ -108,25 +89,8 @@ internal static class SubmergedCompatibility
         }
 
         Types = AccessTools.GetTypesFromAssembly(Assembly);
-
         InjectedTypes = (Dictionary<string, Type>)AccessTools.PropertyGetter(Types.FirstOrDefault(t => t.Name == "ComponentExtensions"), "RegisteredTypes").Invoke(null, Array.Empty<object>());
-
-        SubmarineStatusType = Types.First(t => t.Name == "SubmarineStatus");
-        CalculateLightRadiusMethod = AccessTools.Method(SubmarineStatusType, "CalculateLightRadius");
-
-        TaskIsEmergencyPatchType = Types.First(t => t.Name == "PlayerTaskTaskIsEmergencyPatch");
-        DisableO2MaskCheckField = AccessTools.Field(TaskIsEmergencyPatchType, "disableO2MaskCheck");
-
-        FloorHandlerType = Types.First(t => t.Name == "FloorHandler");
-        GetFloorHandlerMethod = AccessTools.Method(FloorHandlerType, "GetFloorHandler", new Type[] { typeof(PlayerControl) });
-        RpcRequestChangeFloorMethod = AccessTools.Method(FloorHandlerType, "RpcRequestChangeFloor");
-
-        VentMoveToVentPatchType = Types.First(t => t.Name == "VentMoveToVentPatch");
-        InTransitionField = AccessTools.Field(VentMoveToVentPatchType, "inTransition");
-
-        SubmarineOxygenSystemType = Types.First(t => t.Name == "SubmarineOxygenSystem" && t.Namespace == "Submerged.Systems.Oxygen");
-        SubmarineOxygenSystemInstanceField = AccessTools.PropertyGetter(SubmarineOxygenSystemType, "Instance");
-        RepairDamageMethod = AccessTools.Method(SubmarineOxygenSystemType, "RepairDamage");
+        RetrieveOxygenMask = CustomTaskTypes.RetrieveOxygenMask;
     }
 
     internal static MonoBehaviour AddSubmergedComponent(this GameObject obj, string typeName)
@@ -139,20 +103,20 @@ internal static class SubmergedCompatibility
     internal static float GetSubmergedNeutralLightRadius(bool isImpostor)
     {
         if (!Loaded) return 0;
-        return (float)CalculateLightRadiusMethod.Invoke(SubmarineStatus, new object[] { null, true, isImpostor });
+        return SubmarineStatusBehaviour.CalculateLightRadius(null, true, isImpostor);
     }
 
     internal static void ChangeFloor(bool toUpper)
     {
         if (!Loaded) return;
-        MonoBehaviour _floorHandler = ((Component)GetFloorHandlerMethod.Invoke(null, new object[] { CachedPlayer.LocalPlayer.PlayerControl })).TryCast(FloorHandlerType) as MonoBehaviour;
-        RpcRequestChangeFloorMethod.Invoke(_floorHandler, new object[] { toUpper });
+        var _floorHandler = FloorHandler.GetFloorHandler(CachedPlayer.LocalPlayer.PlayerControl);
+        _floorHandler.RpcRequestChangeFloor(toUpper);
     }
 
     internal static bool GetInTransition()
     {
         if (!Loaded) return false;
-        return (bool)InTransitionField.GetValue(null);
+        return VentPatchData.InTransition;
     }
 
     internal static void RepairOxygen()
@@ -161,13 +125,12 @@ internal static class SubmergedCompatibility
         try
         {
             ShipStatus.Instance.RpcRepairSystem((SystemTypes)130, 64);
-            RepairDamageMethod.Invoke(SubmarineOxygenSystemInstanceField.Invoke(null, Array.Empty<object>()), new object[] { CachedPlayer.LocalPlayer.PlayerControl, 64 });
+            SubmarineOxygenSystem.Instance.RepairDamage(CachedPlayer.LocalPlayer.PlayerControl, 64);
         }
         catch (NullReferenceException)
         {
             Main.Logger.LogMessage("null reference in engineer oxygen fix");
         }
-
     }
 }
 

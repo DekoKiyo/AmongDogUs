@@ -8,6 +8,7 @@ namespace AmongDogUs.Modules;
 internal static class CustomOverlays
 {
     internal static Dictionary<int, PlayerVersion> playerVersions = new();
+    private static SpriteRenderer fullScreenBlack;
     private static SpriteRenderer meetingUnderlay;
     private static SpriteRenderer infoUnderlay;
     private static TextMeshPro infoOverlayRules;
@@ -41,6 +42,7 @@ internal static class CustomOverlays
 
     internal static void ResetOverlays()
     {
+        HideBlackBG();
         HideInfoOverlay();
         Object.Destroy(meetingUnderlay);
         Object.Destroy(infoUnderlay);
@@ -55,9 +57,10 @@ internal static class CustomOverlays
         OverlayShown = false;
     }
 
-    internal static bool Initialize(HudManager __instance)
+    internal static bool Initialize()
     {
-        if (__instance == null) return false;
+        if (FastDestroyableSingleton<HudManager>.Instance == null) return false;
+        var __instance = FastDestroyableSingleton<HudManager>.Instance;
 
         if (meetingUnderlay == null)
         {
@@ -130,7 +133,7 @@ internal static class CustomOverlays
 
         if (PlayerControl.LocalPlayer == null || __instance == null) return;
 
-        if (!Initialize(__instance)) return;
+        if (!Initialize()) return;
 
         MapBehaviour.Instance?.Close();
 
@@ -237,7 +240,7 @@ internal static class CustomOverlays
     {
         internal static void Postfix(HudManager __instance)
         {
-            if (!Initialize(__instance)) return;
+            if (!Initialize()) return;
             if (!OverlayShown) return;
             if (PlayerControl.LocalPlayer == null || __instance == null) return;
 
@@ -275,5 +278,27 @@ internal static class CustomOverlays
         {
             return Assembly.GetExecutingAssembly().ManifestModule.ModuleVersionId.Equals(guid);
         }
+    }
+
+    internal static void ShowBlackBG()
+    {
+        if (FastDestroyableSingleton<HudManager>.Instance == null) return;
+        if (!Initialize()) return;
+
+        fullScreenBlack = Object.Instantiate(FastDestroyableSingleton<HudManager>.Instance.FullScreen, FastDestroyableSingleton<HudManager>.Instance.transform);
+        fullScreenBlack.enabled = true;
+        fullScreenBlack.transform.localScale = new Vector3(20f, 20f, 1f);
+        var clearBlack = new Color32(0, 0, 0, 0);
+
+        FastDestroyableSingleton<HudManager>.Instance.StartCoroutine(Effects.Lerp(0.2f, new Action<float>(t =>
+        {
+            fullScreenBlack.color = Color.Lerp(clearBlack, Palette.Black, t);
+        })));
+    }
+
+    internal static void HideBlackBG()
+    {
+        if (fullScreenBlack == null) return;
+        fullScreenBlack.enabled = false;
     }
 }

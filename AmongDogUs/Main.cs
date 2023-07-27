@@ -16,7 +16,9 @@ global using InnerNet;
 global using Hazel;
 global using TMPro;
 global using Twitch;
+global using PowerTools;
 global using Mono.Cecil;
+global using Assets.CoreScripts;
 global using Assets.InnerNet;
 global using AmongUs.Data;
 global using AmongUs.Data.Legacy;
@@ -82,6 +84,7 @@ internal class Main : BasePlugin
     internal Harmony Harmony { get; } = new(PLUGIN_GUID);
 
     internal static int OptionsPage = 1;
+    internal static ConfigEntry<bool> DebugMode { get; private set; }
     internal static ConfigEntry<bool> GhostsSeeTasks { get; set; }
     internal static ConfigEntry<bool> GhostsSeeRoles { get; set; }
     internal static ConfigEntry<bool> GhostsSeeVotes { get; set; }
@@ -111,6 +114,7 @@ internal class Main : BasePlugin
         Instance = this;
         Logger = BepInEx.Logging.Logger.CreateLogSource("AmongDogRun");
 
+        DebugMode = Config.Bind("Develop", "Debug Mode", false);
         GhostsSeeTasks = Config.Bind("Custom", "Ghosts See Remaining Tasks", true);
         GhostsSeeRoles = Config.Bind("Custom", "Ghosts See Roles", true);
         GhostsSeeVotes = Config.Bind("Custom", "Ghosts See Votes", true);
@@ -192,6 +196,7 @@ internal static class AmongDogUs
         Modifier.allModifiers.Do(x => x.OnMeetingEnd());
 
         CustomOverlays.HideInfoOverlay();
+        CustomOverlays.HideBlackBG();
     }
 
     internal static void Clear()

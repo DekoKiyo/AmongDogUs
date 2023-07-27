@@ -139,4 +139,22 @@ internal static class MeetingHudPatch
         }
         return false;
     }
+
+    [HarmonyPatch(nameof(MeetingHud.PopulateButtons)), HarmonyPrefix]
+    internal static bool PopulateButtons(MeetingHud __instance, byte reporter)
+    {
+        return false;
+    }
+
+    [HarmonyPatch(nameof(MeetingHud.Start)), HarmonyPrefix]
+    internal static void Start(MeetingHud __instance)
+    {
+        Main.Logger.LogInfo("---------Meeting Start----------");
+    }
+
+    [HarmonyPatch(nameof(MeetingHud.OnDestroy)), HarmonyPostfix]
+    internal static void OnDestroy(MeetingHud __instance)
+    {
+        Main.Logger.LogInfo("----------Meeting End-----------");
+    }
 }
